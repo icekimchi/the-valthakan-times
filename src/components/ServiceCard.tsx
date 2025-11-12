@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type ServiceCardProps = {
   serviceName: string;        // Service name (e.g., "Spotify")
   serviceSubtitle: string;    // Subtitle (e.g., "Valthakan on Air")
   backgroundImage: string;    // Background image URL
   serviceImage: string;       // Service logo/image URL
+  serviceLink: string;
 };
 
 export default function ServiceCard({
@@ -12,6 +14,7 @@ export default function ServiceCard({
   serviceSubtitle,
   backgroundImage,
   serviceImage,
+  serviceLink,
 }: ServiceCardProps) {
   return (
     <article
@@ -34,7 +37,8 @@ export default function ServiceCard({
       />
       
       {/* Background section with color overlay */}
-      <div
+      <Link
+        href={serviceLink} target="_blank" rel="noopener noreferrer"
         className="relative self-stretch h-24 rounded-t-lg bg-cover bg-center"
         style={{
           backgroundImage: `url(${backgroundImage})`,
@@ -42,13 +46,14 @@ export default function ServiceCard({
       >
         {/* Overlay with #120F2E at 50% opacity */}
         <div className="absolute inset-0 bg-[#120F2E]/50 rounded-t-lg" />
-      </div>
+      </Link>
         
 
       {/* Main content */}
       <div className="px-6 pb-6 flex flex-col items-center gap-4 -mt-8">
         {/* Service image */}
-        <figure className="relative w-16 h-16 rounded-lg overflow-hidden ring-1 ring-white/10 bg-black/20">
+        <Link href={serviceLink} target="_blank" rel="noopener noreferrer" 
+          className="relative w-16 h-16 rounded-lg overflow-hidden ring-1 ring-white/10 bg-black/20">
           <Image
             src={serviceImage}
             alt={`${serviceName} logo`}
@@ -56,13 +61,15 @@ export default function ServiceCard({
             height={64}
             className="object-cover w-16 h-16"
           />
-        </figure>
+        </Link>
 
         {/* Text info */}
         <header className="text-center space-y-1">
-          <h3 className="mt-3 text-white heading-sp-h3-eczar leading-snug font-semibold">
-            {serviceName}
-          </h3>
+          <Link href={serviceLink} target="_blank" rel="noopener noreferrer">
+            <h3 className="mt-3 text-white heading-sp-h3-eczar leading-snug font-semibold hover:underline">
+              {serviceName}
+            </h3>
+          </Link>
           <p className="text-[color:var(--color-palette-white)] text-base font-regular font-['Eczar'] leading-6">
             {serviceSubtitle}
           </p>
