@@ -11,6 +11,7 @@ export type BeehiivPost = {
   displayed_date?: number | null;
   status?: string;
   authors?: string[];
+  content_tags?: string[] | null;
   meta_default_title?: string;
   meta_default_description?: string;
 };
@@ -25,6 +26,8 @@ export type EditionCardItem = {
   title: string;
   subtitle?: string;
 };
+
+import { extractEditionNumber } from "./edition";
 
 // Mock dataset used when API is unavailable or returns no posts
 const MOCK_ITEMS: EditionCardItem[] = Array.from({ length: 5 }).map((_, i) => {
@@ -46,8 +49,8 @@ const MOCK_ITEMS: EditionCardItem[] = Array.from({ length: 5 }).map((_, i) => {
  */
 export async function fetchLatestEditions(limit = 5): Promise<EditionCardItem[]> {
   const key = process.env.BEEHIIV_API_KEY || "";
-  const rawPub = process.env.BEEHIIV_PUBLICATION_ID || "";
-  const useMock = process.env.USE_MOCK_DATA === "true";
+  const rawPub = process.env.BEEHIIV_PUBLICATION || "";
+  const useMock = process.env.USE_MOCK_DATA === "false";
 
   // If explicitly using mock OR missing credentials → return mock
   if (useMock || !key || !rawPub) {
@@ -58,10 +61,13 @@ export async function fetchLatestEditions(limit = 5): Promise<EditionCardItem[]>
   // Normalize publication id (accept both "pub_XXXX" and "XXXX")
   const pub = rawPub.startsWith("pub_") ? rawPub : `pub_${rawPub}`;
 
-  // Real API request
-  const url = `${API_BASE}/publications/${pub}/posts?status=confirmed&platform=web&limit=${encodeURIComponent(
-    String(limit)
-  )}`;
+    // URL builder
+  const url = new URL(`${API_BASE}/publications/${pub}/posts`);
+  url.searchParams.set("status", "confirmed");
+  url.searchParams.set("platform", "all");
+  url.searchParams.set("limit", String(limit));
+  url.searchParams.set("order_by", "publish_date");
+  url.searchParams.set("direction", "desc");
 
   const res = await fetch(url, {
     headers: {
@@ -69,7 +75,7 @@ export async function fetchLatestEditions(limit = 5): Promise<EditionCardItem[]>
       "Content-Type": "application/json",
     },
     // Next.js cache hint (optional)
-    next: { revalidate: 300 }, // 5 minutes
+    next: { revalidate: 300 }, // 5 minutes'
   });
 
   if (!res.ok) {
@@ -87,25 +93,30 @@ export async function fetchLatestEditions(limit = 5): Promise<EditionCardItem[]>
     return MOCK_ITEMS.slice(0, limit);
   }
 
+  const sorted = posts.sort((a, b) => {
+      const ad = (a.displayed_date ?? a.publish_date) ?? 0;
+      const bd = (b.displayed_date ?? b.publish_date) ?? 0;
+      return bd - ad; // desc
+    });
+
   return posts.slice(0, limit).map(mapBeehiivToEditionCard);
 }
 
 /**
  * Beehiiv response → card component
  */
-function mapBeehiivToEditionCard(post: BeehiivPost): EditionCardItem {
-  const date = post.displayed_date ?? post.publish_date;
-  const dateISO = date ? new Date(date * 1000).toISOString() : undefined;
+export function mapBeehiivToEditionCard(p: BeehiivPost): EditionCardItem {
+  const ts = p.displayed_date ?? p.publish_date ?? undefined;
+  const ed = extractEditionNumber(p); // number | undefined
 
   return {
-    id: post.id,
-    href: post.web_url ?? `/editions/${post.slug ?? post.id}`,
-    imageSrc: post.thumbnail_url ?? "/card_img.jpg",
-    // Try to extract a number from slug (e.g., "edition-82")
-    editionNumber: post.slug?.replace(/\D/g, "") || "—",
-    tag: "Monthly Edition",
-    dateISO,
-    title: post.title,
-    subtitle: post.subtitle ?? post.meta_default_description ?? "",
+    id: p.id,
+    href: p.web_url ?? `/editions/${p.slug ?? p.id}`,
+    imageSrc: p.thumbnail_url ?? "/card_img.png",
+    editionNumber: ed ?? "—",
+    tag: p.content_tags?.[0] ?? "Edition",
+    dateISO: ts ? new Date(ts * 1000).toISOString() : undefined,
+    title: p.title,
+    subtitle: p.subtitle ?? p.meta_default_description ?? "",
   };
 }

@@ -13,7 +13,6 @@ type EditionCardProps = {
   className?: string;
 };
 
-
 export default function EditionCard({
   href = "#",
   imageSrc = "/card_img.png",
