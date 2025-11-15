@@ -1,10 +1,12 @@
-// app/api/test-beehiiv/route.ts
 import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
     const apiKey = process.env.BEEHIIV_API_KEY;
-    const publicationId = "pub_" + process.env.BEEHIIV_PUBLICATION_ID;
+    const publicationId = process.env.BEEHIIV_PUBLICATION;
+
+    console.log('[server] PUB_ID =', process.env.BEEHIIV_PUBLICATION);
+    console.log('[server] API_KEY =', process.env.BEEHIIV_API_KEY);
 
     if (!apiKey || !publicationId) {
       return NextResponse.json(

@@ -10,13 +10,13 @@ export const PrimaryButton = ({
     <button
       className={`
         flex items-center justify-center flex-row
-        w-full h-[40px]
+        w-full
         rounded-[8px]
         font-['Eczar'] font-semibold
         bg-indigo-600 hover:bg-indigo-700
-        shadow-indigoglow  
-        text-[color:var(--color-palette-white)]
-        px-[var(--spacing-4)] py-[var(--spacing-2-5)]
+        shadow-[var(--shadow-indigo)]
+        text-[color:var(--color-palette-white)] text-[16px]
+        px-[var(--spacing-5)] py-3
         gap-[var(--spacing-1-5)]
         ${className}
       `}

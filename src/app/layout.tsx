@@ -9,7 +9,7 @@ const italianno = Italianno({
 });
 
 const eczar = Eczar({
-  subsets: ["latin"],
+  subsets: ["latin"], 
   weight: ["400", "600"],
   variable: "--font-eczar",
 });

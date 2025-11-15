@@ -10,14 +10,14 @@ export const SecondaryButton = ({
     <button
       className={`
         flex items-center justify-center flex-row
-        w-full h-[40px]
+        w-full
         rounded-[8px]
         font-['Eczar'] font-semibold
         bg-yellow-400 hover:bg-yellow-500
         text-[color:var(--color-blue-gray-900)]
-        px-[var(--spacing-4)] py-[var(--spacing-2-5)]
+        px-[var(--spacing-5)] py-3
         gap-[var(--spacing-1-5)]
-        shadow-yellowglow  
+        shadow-[var(--shadow-indigo)]
         transition-shadow duration-300
         ${className}
       `}
