@@ -6,6 +6,7 @@ import Link from "next/link";
 import { NAV_LINKS } from "@/constants/links";
 import { PrimaryButton } from "./PrimaryButton";
 import { SecondaryButton } from "./SecondaryButton";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,15 +15,7 @@ export default function Navbar() {
     <>
     <nav className="fixed top-0 w-full z-50 bg-[color:var(--color-blue-gray-900)/80] backdrop-blur-md backdrop-brightness-[100%] pl-5 pr-3.5 py-3 md:px-10 md:py-5">
       <div className="flex h-full items-center justify-between">
-        {/* logo */}
-        <div className="flex items-center space-x-3">
-          <img
-            src="/crone_logo.png"
-            alt="The Valthakan Logo"
-            className="h-[45px] w-[45px] object-contain"
-          />
-          <Link href="/" className="text-white text-xl font-medium font-serif">The Valthakan</Link>
-        </div>
+        <Logo/>
 
         {/* Hamburger Menu (Mobile) */}
         <button

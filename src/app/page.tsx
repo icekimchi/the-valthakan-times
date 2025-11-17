@@ -3,6 +3,7 @@ import LatestEdition from "@/components/LatestEdition";
 import Navbar from "@/components/Navbar";
 import WhatsNew from "@/components/WhatsNew";
 import HomeHero from "@/components/HomeHero";
+import Footer from "@/components/Footer";
 
 
 export default async function Page() {
@@ -28,6 +29,8 @@ export default async function Page() {
       <WhatsNew />
 
       <CollaborateList/>
+
+      <Footer/>
     </>
   );
 }
