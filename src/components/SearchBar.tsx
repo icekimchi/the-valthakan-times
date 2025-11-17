@@ -29,7 +29,7 @@ export default function SearchBar({
       <div
         className="group flex h-full w-full items-center gap-4 rounded-lg border border-[#302D9A]/30 bg-white/5 px-4 backdrop-blur-sm transition focus-within:border-[#302D9A]/50"
       >
-        <Search aria-hidden className="size-5 shrink-0 opacity-80 group-focus-within:opacity-100" />
+        <Search aria-hidden className="size-5 shrink-0 text-[color:var(--color-blue-gray-300)]" />
 
         <label htmlFor="search-input" className="sr-only">
           {placeholder}
@@ -40,7 +40,7 @@ export default function SearchBar({
           value={value}
           onChange={(e) => onChange?.(e.target.value)}
           placeholder={placeholder}
-          className="flex-1 bg-transparent text-slate-200 placeholder:text-slate-300/80 focus:outline-none"
+          className="flex-1 bg-transparent text-[16px] font-['inter'] placeholder:text-slate-300/80 focus:outline-none"
         />
       </div>
     </form>
