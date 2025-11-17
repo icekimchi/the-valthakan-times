@@ -4,7 +4,10 @@ import Navbar from "@/components/Navbar";
 import WhatsNew from "@/components/WhatsNew";
 import HomeHero from "@/components/HomeHero";
 import Footer from "@/components/Footer";
-
+import Image from "next/image";
+import YoutubeShortScroller from "@/components/YoutubeShortScroller";
+import { getShorts } from "@/lib/lib/getShorts";
+import { extractYouTubeId } from "@/lib/utils/youtube";
 
 export default async function Page() {
   return (
@@ -27,7 +30,7 @@ export default async function Page() {
       </div>
 
       <WhatsNew />
-
+      
       <CollaborateList/>
 
       <Footer/>
