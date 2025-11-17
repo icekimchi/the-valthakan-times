@@ -1,24 +1,28 @@
 "use client"
 import { Search } from "lucide-react";
 
-/**
- * - Fixed: 390x52
- * - 8px radius, subtle 1px border with ~30% opacity
- * - Slight background blur
- */
+interface SearchBarProps {
+  placeholder?: string;         
+  value?: string;               
+  onChange?: (v: string) => void;
+  onSubmit?: (v: string) => void;
+  showIcon?: boolean;         
+  label?: string;  
+  formId?: string;            
+}
+
 export default function SearchBar({
   placeholder = "Search for Newsletters",
   value,
   onChange,
   onSubmit,
-}: {
-  placeholder?: string;
-  value?: string;
-  onChange?: (v: string) => void;
-  onSubmit?: (v: string) => void;
-}) {
+  showIcon = true,              
+  label = "Search",  
+  formId,           
+}: SearchBarProps) {
   return (
     <form
+      id={formId}  
       role="search"
       onSubmit={(e) => {
         e.preventDefault();
@@ -29,7 +33,12 @@ export default function SearchBar({
       <div
         className="group flex h-full w-full items-center gap-4 rounded-lg border border-[#302D9A]/30 bg-white/5 px-4 backdrop-blur-sm transition focus-within:border-[#302D9A]/50"
       >
-        <Search aria-hidden className="size-5 shrink-0 text-[color:var(--color-blue-gray-300)]" />
+        {showIcon && (
+          <Search
+            aria-hidden
+            className="size-5 shrink-0 text-[color:var(--color-blue-gray-300)]"
+          />
+        )}
 
         <label htmlFor="search-input" className="sr-only">
           {placeholder}
