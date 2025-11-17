@@ -1,80 +1,66 @@
-import Image from "next/image";
 import Link from "next/link";
-
-type ServiceCardProps = {
-  serviceName: string;        // Service name (e.g., "Spotify")
-  serviceSubtitle: string;    // Subtitle (e.g., "Valthakan on Air")
-  backgroundImage: string;    // Background image URL
-  serviceImage: string;       // Service logo/image URL
-  serviceLink: string;
-};
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export default function ServiceCard({
   serviceName,
   serviceSubtitle,
-  backgroundImage,
-  serviceImage,
   serviceLink,
-}: ServiceCardProps) {
+  backgroundImage,
+  badge,
+}: {
+  serviceName: string;
+  serviceSubtitle: string;
+  serviceLink: string;
+  backgroundImage: string;
+  badge: string;
+}) {
   return (
     <article
-      className="
-        relative isolate
-        w-full
-        rounded-lg overflow-hidden
-        border border-[1px] border-[color:var(--color-indigo-900)]
-        bg-clip-padding
-        shadow-indigo
-        flex flex-col items-center
-      "
+      className="relative isolate w-full max-w-md h-56 rounded-2xl overflow-hidden justify-between
+                  bg-[linear-gradient(180deg,_#1C1144_0%,_#0C0525_49%,_#1D1A60_75%,_#2C2E99_100%)] p-6 text-white
+                  shadow-[var(--shadow-indigo)]"
       aria-label={`${serviceName}: ${serviceSubtitle}`}
     >
-      <div
-        className="
-          absolute inset-0 -z-10 pointer-events-none
-          bg-[linear-gradient(180deg,_var(--color-blue-gray-900)_40%,_var(--color-indigo-600)_100%)]
-        "
-      />
-      
-      {/* Background section with color overlay */}
-      <Link
-        href={serviceLink} target="_blank" rel="noopener noreferrer"
-        className="relative self-stretch h-24 rounded-t-lg bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}
-      >
-        {/* Overlay with #120F2E at 50% opacity */}
-        <div className="absolute inset-0 bg-[#120F2E]/50 rounded-t-lg" />
-      </Link>
-        
-
-      {/* Main content */}
-      <div className="px-6 pb-6 flex flex-col items-center gap-4 -mt-8">
-        {/* Service image */}
-        <Link href={serviceLink} target="_blank" rel="noopener noreferrer" 
-          className="relative w-16 h-16 rounded-lg overflow-hidden ring-1 ring-white/10 bg-black/20">
-          <Image
-            src={serviceImage}
-            alt={`${serviceName} logo`}
-            width={64}
-            height={64}
-            className="object-cover w-16 h-16"
-          />
-        </Link>
-
-        {/* Text info */}
-        <header className="text-center space-y-1">
-          <Link href={serviceLink} target="_blank" rel="noopener noreferrer">
-            <h3 className="mt-3 text-white heading-sp-h3-eczar leading-snug font-semibold hover:underline">
-              {serviceName}
-            </h3>
-          </Link>
-          <p className="text-[color:var(--color-palette-white)] text-base font-regular font-['Eczar'] leading-6">
-            {serviceSubtitle}
-          </p>
-        </header>
+      {/* Background image on right */}
+      <div className="absolute right-0 top-0 opacity-90">
+        <Image
+          src={backgroundImage}
+          alt="serviceImage"
+          width={150}
+          height={150}
+          className="size-36 rounded-[12px] object-contain"
+        />
       </div>
+
+      {/* Top section */}
+      <header className="mb-10">
+        <Link href={serviceLink} target="_blank" rel="noopener noreferrer">
+          <h3 className="text-lg !font-serif mb-1 flex items-center gap-2">
+            <Image
+              src={badge}
+              alt="badgeImage"
+              width={24}
+              height={24}
+              className="object-contain"
+            />
+            {serviceName}
+          </h3>
+        </Link>
+        <p className="text-base font-serif">{serviceSubtitle}</p>
+      </header>
+
+      {/* CTA */}
+      <Link
+        href={serviceLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 rounded-full bg-[#120F2E]/40 px-4 py-1-5 font-base 
+                  text-[color:var(--color-blue-gray-300)] font-['inter'] hover:bg-[#3A30B3] transition"
+      >
+        Listen on {serviceName}
+        <ArrowRight className="w-4 h-4" />
+      </Link>
     </article>
   );
 }

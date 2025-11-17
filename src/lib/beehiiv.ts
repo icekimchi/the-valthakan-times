@@ -61,7 +61,7 @@ export async function fetchLatestEditions(limit = 5): Promise<EditionCardItem[]>
   // Normalize publication id (accept both "pub_XXXX" and "XXXX")
   const pub = rawPub.startsWith("pub_") ? rawPub : `pub_${rawPub}`;
 
-    // URL builder
+  // URL builder
   const url = new URL(`${API_BASE}/publications/${pub}/posts`);
   url.searchParams.set("status", "confirmed");
   url.searchParams.set("platform", "all");
