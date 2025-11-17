@@ -66,7 +66,6 @@ export default function EditionsCarousel({ items }: { items: Item[] }) {
           snap-x snap-mandatory
           px-5 md:px-0
           scrollbar-hide
-          touch-pan-x
         "
         role="region"
         aria-label="Latest editions"
@@ -85,7 +84,7 @@ export default function EditionsCarousel({ items }: { items: Item[] }) {
             {/* Render each edition card */}
             <EditionCard
               href={it.href}
-              imageSrc={it.imageSrc}
+              imageSrc={"/card_img.png"}
               editionNumber={it.editionNumber}
               tag={it.tag}
               dateISO={it.dateISO}

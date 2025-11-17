@@ -49,7 +49,7 @@ export default async function HomeHero() {
 
         {/* Copy */}
         <div className="w-full text-center">
-          <h1 className="text-white heading-sp-h1 [text-shadow:_0px_0px_40px_rgb(147_112_219_/_0.50)]">
+          <h1 className="text-white text-5xl [text-shadow:_0px_0px_40px_rgb(147_112_219_/_0.50)]">
               The <span className="block md:inline">Valthakan Times</span>
           </h1>
           <p className="mt-3 text-[color:var(--color-blue-gray-300)] leading-6 font-['Eczar']">
@@ -59,7 +59,7 @@ export default async function HomeHero() {
 
 
         {/* CTAs */}
-        <div className="flex gap-4 w-full justify-center">
+        <div className="flex flex-col gap-4 w-full justify-center">
           <PrimaryButton text="Subscribe" showLeftIcon={false} showRightIcon={false} />
           <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
         </div>
