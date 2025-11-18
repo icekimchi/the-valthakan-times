@@ -63,14 +63,14 @@ export function PostTag({ tag }: Props) {
   return (
     <div className="inline-flex items-center gap-2">
       <span
-        className={`h-7 px-3 py-2 rounded-full inline-flex items-center gap-1 ${style.wrapper}`}
+        className={`h-[30px] px-3 py-2 rounded-full inline-flex items-center gap-2 ${style.wrapper}`}
       >
         {style.locked && (
           <HiLockClosed className={`${style.text} w-4 h-4`} />
         )}
 
         <span
-          className={`max-h-6 text-center text-sm font-semibold font-['Eczar'] leading-6 ${style.text}`}
+          className={`max-h-6 text-center text-sm-figma font-semibold !font-['Eczar'] leading-6 ${style.text}`}
         >
           {tag}
         </span>

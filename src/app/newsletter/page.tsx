@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import SearchBar from "@/components/SearchBar";
 import { fetchPagedList } from "@/service/beehiiv.posts.service";
 import NewsletterList from "@/components/NewsletterList";
+import Footer from "@/components/Footer";
 
 export default async function Page() {
   
@@ -11,7 +12,7 @@ export default async function Page() {
     <>
       <Navbar />
       <main className="w-full flex flex-col gap-10 pt-20 gap-10">
-        <div className="w-full text-center py-10">
+        <div className="w-full text-center">
           <h1 className="text-white text-[56px] [text-shadow:_0px_0px_40px_rgb(147_112_219_/_0.50)]">
               Featured Posts
           </h1>
@@ -26,6 +27,7 @@ export default async function Page() {
           <NewsletterList items={items} />
         </div>
       </main>
+      <Footer/>
     </>
   );
 }
