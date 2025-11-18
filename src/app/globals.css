@@ -133,6 +133,7 @@
   --text-shadow-indigo: 0 0 20px rgba(67,56,202,.5);
 
   --color-card-bg: #18143DB3;
+  --color-card-stroke: #302D9A33;
 }
 
 @theme inline {
@@ -246,6 +247,7 @@
   --shadow-yellow: var(--shadow-yellow);
   --gradient-yellow: var(--gradient-yellow);
   --color-card-bg: var(--color-card-bg);
+  --color-card-stroke: var(--color-card-stroke);
 
   /* Figma Common Styles - Spacing */
   --spacing-0: var(--spacing-0);
