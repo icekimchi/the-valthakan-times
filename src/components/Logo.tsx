@@ -3,13 +3,17 @@ import Link from "next/link";
 export default function Logo() {
     return (
       <>
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 
+                 bg-[url('/stars_bg.svg')] 
+                 bg-cover bg-center bg-no-repeat
+                 rounded"
+        >
           <img
             src="/crone_logo.png"
             alt="The Valthakan Logo"
             className="h-[45px] w-[45px] object-contain"
           />
-          <Link href="/" className="text-white text-3xl font-['Italianno']">The Valthakan</Link>
+          <Link href="/" className="text-white text-3xl font-['Italianno']">The Valthakan Times</Link>
         </div>
       </>
     );
