@@ -23,15 +23,15 @@ export const PrimaryButton = ({
       onClick={onClick}   
       disabled={disabled}
       className={`
-        flex items-center justify-center flex-row
-        w-full h-[40px]
+        w-full flex items-center justify-center flex-row
         rounded-[8px]
         font-['Eczar'] font-semibold
-        bg-indigo-600 hover:bg-indigo-700
-        shadow-[var(--shadow-indigo)] 
-        text-[color:var(--color-palette-white)]
-        px-[var(--spacing-4)] py-[var(--spacing-2-5)]
+        bg-indigo-700 hover:bg-yellow-500
+        text-white
+        px-[var(--spacing-5)] py-3
         gap-[var(--spacing-1-5)]
+        shadow-[var(--shadow-indigo)]
+        transition-shadow duration-300
         ${className}
       `}
     >
