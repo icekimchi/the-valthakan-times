@@ -19,7 +19,7 @@ export default function NewsletterList({ items }: NewsletterListProps) {
       {items.map((item) => (
         <NewsletterListsCard
           key={item.id}
-          href={item.href}
+          href={`/newsletter/${item.id}`}
           imageSrc={item.imageSrc}
           editionNumber={item.editionNumber}
           tag={item.tag}
