@@ -1,8 +1,8 @@
 import ServiceCard from "./ServiceCard";
 import Image from "next/image";
 import YoutubeShortScroller from "./YoutubeShortScroller";
-import { getShorts } from "@/lib/lib/getShorts";
-import { extractYouTubeId } from "@/lib/utils/youtube";
+import { getShorts } from "@/service/youtube.service";
+import { extractYouTubeId } from "@/utils/youtube";
 
 export default async function WhatsNew(){
     const youtubeUrls = [
