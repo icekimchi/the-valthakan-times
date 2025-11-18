@@ -3,6 +3,7 @@ import { PrimaryButton } from "@/components/PrimaryButton";
 import Footer from "@/components/Footer";
 import { fetchPagedList } from "@/service/beehiiv.posts.service";
 import NewsletterList from "@/components/NewsletterList";
+import Link from "next/link";
 
 export default async function mypage(){
 
@@ -34,7 +35,9 @@ export default async function mypage(){
           <div className="w-full flex flex-col gap-5">
             <div className="text-[color:var(--color-blue-gray-400)] font-['Eczar']">Current Plan</div>
             <div className="text-xl-figma text-white font-semibold !font-['Eczar']">Free Plan</div>
-            <PrimaryButton text="Upgrade Now" showLeftIcon={false} showRightIcon={true}/>
+            <Link href="/upgrade" className="w-full">
+              <PrimaryButton text="Upgrade Now" showLeftIcon={false} showRightIcon={true}/>
+            </Link>
           </div>
         </div>
 
