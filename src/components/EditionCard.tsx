@@ -25,7 +25,7 @@ export default function EditionCard({
 }: EditionCardProps) {
   const formattedDate = dateISO
     ? new Date(dateISO).toLocaleDateString(undefined, {
-        year: "numeric",
+        year: "numeric",  
         month: "short",
         day: "numeric",
       })
@@ -33,7 +33,7 @@ export default function EditionCard({
 
   return (
     <Link
-      href={href}
+      href={href} 
       className={`
         w-72 h-96
         flex flex-col

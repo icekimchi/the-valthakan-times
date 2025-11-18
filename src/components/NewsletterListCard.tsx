@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { PostTag } from "./PostTag";
 
 type NewsletterProps = {
   href?: string;                    // detail page link
@@ -69,15 +70,7 @@ export default function NewsletterListsCard({
             </div>
           )}
 
-          {tag && (
-            <div className="inline-flex items-center gap-2">
-              <span className="h-7 px-3 py-2 bg-indigo-800/20 rounded-full inline-flex items-center">
-                <span className="max-h-6 text-center text-white text-sm font-semibold font-['Eczar'] leading-6">
-                  {tag}
-                </span>
-              </span>
-            </div>
-          )}
+          <PostTag tag={tag} />
       </div>
     </div>
     </Link>
