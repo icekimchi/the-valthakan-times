@@ -6,8 +6,8 @@ import HomeHero from "@/components/HomeHero";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import YoutubeShortScroller from "@/components/YoutubeShortScroller";
-import { getShorts } from "@/lib/lib/getShorts";
-import { extractYouTubeId } from "@/lib/utils/youtube";
+import { getShorts } from "@/service/youtube.service";
+import { extractYouTubeId } from "@/utils/youtube";
 
 export default async function Page() {
   return (

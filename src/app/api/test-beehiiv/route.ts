@@ -1,53 +1,37 @@
 import { NextResponse } from "next/server";
 
+const PUB_ID = process.env.BEEHIIV_PUBLICATION!;
+const API_KEY = process.env.BEEHIIV_API_KEY!;
+const POST_ID = "post_07af2f5b-7d8d-4147-9a5c-7b32f747d926";
+
 export async function GET() {
+  const url = `https://api.beehiiv.com/v2/publications/${PUB_ID}/posts/${POST_ID}?expand[]=free_web_content`;
+
   try {
-    const apiKey = process.env.BEEHIIV_API_KEY;
-    const publicationId = process.env.BEEHIIV_PUBLICATION;
-
-    console.log('[server] PUB_ID =', process.env.BEEHIIV_PUBLICATION);
-    console.log('[server] API_KEY =', process.env.BEEHIIV_API_KEY);
-
-    if (!apiKey || !publicationId) {
-      return NextResponse.json(
-        { error: "Missing API key or publication ID" },
-        { status: 400 }
-      );
-    }
-
-    const res = await fetch(
-      `https://api.beehiiv.com/v2/publications/${publicationId}/posts?limit=3`,
-      {
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-        },
-      }
-    );
+    const res = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        "Content-Type": "application/json",
+      },
+    });
 
     if (!res.ok) {
-      const errorText = await res.text();
+      const text = await res.text();
+      console.error("beehiiv error:", res.status, text);
       return NextResponse.json(
-        {
-          error: "Beehiiv API request failed",
-          status: res.status,
-          details: errorText,
-        },
-        { status: res.status }
+        { ok: false, status: res.status, body: text },
+        { status: res.status },
       );
     }
 
-    const data = await res.json();
-
-    return NextResponse.json({
-      message: "✅ Beehiiv API connection successful!",
-      publicationId,
-      postCount: data.data?.length || 0,
-      samplePostTitles: data.data?.map((p: any) => p.title) || [],
-    });
+    const json = await res.json();
+    console.log("beehiiv success:", json);
+    return NextResponse.json({ ok: true, data: json });
   } catch (err: any) {
+    console.error("fetch error:", err);
     return NextResponse.json(
-      { error: err.message || "Unexpected error occurred" },
-      { status: 500 }
+      { ok: false, error: String(err) },
+      { status: 500 },
     );
   }
 }
