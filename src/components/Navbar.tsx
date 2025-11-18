@@ -26,11 +26,19 @@ export default function Navbar() {
 
   return (
     <>
-    <nav className="fixed top-0 w-full z-50 bg-[#0C0922]/80
+    <nav className="fixed top-0 w-full z-50 bg-[#0C0922]/80 h-[64px]   
                     backdrop-brightness-[85%] backdrop-blur-[5px]
                     pl-5 pr-3.5 py-3 md:px-10 md:py-5 shadow-[0px_0px_20px_0px_rbga(67, 56, 202, 0.50)]">
       <div className="flex h-full items-center justify-between">
-        <Logo/>
+        <div
+          className="
+            bg-[url('/stars_bg.svg')]
+            bg-cover bg-center bg-no-repeat
+            w-[221px] h-[40px]
+          "
+        >
+          <Logo />
+        </div>
 
         {/* Hamburger Menu (Mobile) */}
         <button
@@ -100,8 +108,16 @@ export default function Navbar() {
 
               {/* Bottom Buttons */}
               <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-3 px-6 pb-6">
-                <PrimaryButton text="Login" showLeftIcon={false} showRightIcon={false} />
-                <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
+                <Link href="/login" className="w-full">
+                  <PrimaryButton
+                    text="Login"
+                    showLeftIcon={false}
+                    showRightIcon={false}
+                  />
+                </Link>
+                <Link href="/login" className="w-full">
+                  <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
+                </Link>
               </div>
             </div>
           </motion.div>
