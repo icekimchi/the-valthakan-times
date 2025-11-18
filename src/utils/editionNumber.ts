@@ -1,4 +1,4 @@
-import type { BeehiivPost } from "./types";
+import type { BeehiivPost } from "../types/beehiiv.types";
 
 export function toISO(ts?: number | null) {
   if (!ts) return undefined;

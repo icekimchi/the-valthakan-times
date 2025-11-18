@@ -1,8 +1,8 @@
-import type { Paged, FetchParams, CarouselCardItem, ListCardItem } from "./types";
-import { fetchBeehiivPosts } from "./client";
-import { mapToCarouselCard, mapToListCard } from "./mappers";
+import type { Paged, FetchParams, CarouselCardItem, ListCardItem } from "../types/beehiiv.types";
+import { fetchBeehiivPosts } from "../api/client";
+import { mapToCarouselCard, mapToListCard } from "../mappers/beehiiv.mappers";
 
-export * from "./types";
+export * from "../types/beehiiv.types";
 
 // Latest 5 Edition
 export async function fetchLatestCarousel(limit = 5): Promise<CarouselCardItem[]> {

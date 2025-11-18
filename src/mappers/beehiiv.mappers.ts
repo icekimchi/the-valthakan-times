@@ -1,5 +1,5 @@
-import type { BeehiivPost, CarouselCardItem, ListCardItem } from "./types";
-import { extractEditionNumber, toISO } from "./utils";
+import type { BeehiivPost, CarouselCardItem, ListCardItem } from "../types/beehiiv.types";
+import { extractEditionNumber, toISO } from "../utils/editionNumber";
 
 const fallbackImg = "/card_img.png";
 

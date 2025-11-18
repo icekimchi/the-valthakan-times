@@ -1,5 +1,5 @@
 import EditionsCarousel from "./EditionsCarousel";
-import { fetchLatestEditions } from "@/lib/beehiiv";
+import { fetchLatestEditions } from "@/service/beehiiv.service";
 
 export default async function LatestEdition() {
     const items = await fetchLatestEditions(5);
