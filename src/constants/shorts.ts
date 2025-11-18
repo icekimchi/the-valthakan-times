@@ -1,5 +1,4 @@
-import { ShortsItem } from "./type/shorts";
-
+import { ShortsItem } from "../types/shorts";
 
 export const SHORTS_ITEMS: ShortsItem[] = [
   { id:"1", title:"Do IT", hashtags:"#dalecsander #motivation", dateLabel:"Nov 13, 2025", thumbnailUrl:"/images/shorts/1.jpg", href:"https://youtube.com/shorts/abc123" },

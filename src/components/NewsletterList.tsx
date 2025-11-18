@@ -1,5 +1,5 @@
 import NewsletterListsCard from "@/components/NewsletterListCard";
-import type { ListCardItem } from "@/lib/types";
+import type { ListCardItem } from "@/types/beehiiv.types";
 
 type NewsletterListProps = {
   items: ListCardItem[];

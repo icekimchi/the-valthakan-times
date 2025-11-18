@@ -1,7 +1,7 @@
 import LatestEdition from "@/components/LatestEdition";
 import Navbar from "@/components/Navbar";
 import SearchBar from "@/components/SearchBar";
-import { fetchPagedList } from "@/lib";
+import { fetchPagedList } from "@/service/beehiiv.posts.service";
 import NewsletterList from "@/components/NewsletterList";
 
 export default async function Page() {

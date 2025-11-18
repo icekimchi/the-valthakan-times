@@ -1,4 +1,4 @@
-import type { BeehiivPost, FetchParams, Paged } from "./types";
+import type { BeehiivPost, FetchParams, Paged } from "../types/beehiiv.types";
 
 const API_BASE = "https://api.beehiiv.com/v2";
 const KEY = process.env.BEEHIIV_API_KEY ?? "";

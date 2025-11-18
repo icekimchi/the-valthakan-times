@@ -27,7 +27,7 @@ export type EditionCardItem = {
   subtitle?: string;
 };
 
-import { extractEditionNumber } from "./edition";
+import { extractEditionNumber } from "../utils/editionNumber";
 
 // Mock dataset used when API is unavailable or returns no posts
 const MOCK_ITEMS: EditionCardItem[] = Array.from({ length: 5 }).map((_, i) => {
