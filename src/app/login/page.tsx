@@ -1,4 +1,4 @@
-import Logo from "@/components/Logo";
+import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
 import { PrimaryButton } from "@/components/PrimaryButton";
 
@@ -32,7 +32,9 @@ export default function Login(){
                 </div>
                 <div className="w-96 flex flex-col justicy-start items-start gap-5">
                     <SearchBar/>
-                    <PrimaryButton text="Login" showLeftIcon={false} showRightIcon={false} />
+                    <Link href="/" className="w-full">
+                        <PrimaryButton text="Login" showLeftIcon={false} showRightIcon={false} />
+                    </Link>
                     <p className="w-full pt-10 text-center text-white font-['Eczar']">
                         Create Your New Account ➜
                     </p>
