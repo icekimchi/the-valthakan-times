@@ -2,12 +2,14 @@ import LatestEdition from "@/components/LatestEdition";
 import Navbar from "@/components/Navbar";
 import SearchBar from "@/components/SearchBar";
 import { fetchPagedList } from "@/service/beehiiv.posts.service";
-import NewsletterList from "@/components/NewsletterList";
+import NewsletterListSection from "@/components/NewsletterListSection";
 import Footer from "@/components/Footer";
 
 export default async function Page() {
   
     const { items } = await fetchPagedList({ page: 1, limit: 12 });
+    console.log(items);
+    
   return (
     <>
       <Navbar />
@@ -24,7 +26,7 @@ export default async function Page() {
         </div>
 
         <div className="flex w-full justify-center mb-8 z-20">
-          <NewsletterList items={items} />
+          <NewsletterListSection initialItems={items} />
         </div>
       </main>
       <Footer/>
