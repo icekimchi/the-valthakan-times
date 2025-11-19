@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { PostTag } from "./PostTag";
 
 type EditionCardProps = {
   href?: string;                    // detail page link
@@ -25,7 +26,7 @@ export default function EditionCard({
 }: EditionCardProps) {
   const formattedDate = dateISO
     ? new Date(dateISO).toLocaleDateString(undefined, {
-        year: "numeric",
+        year: "numeric",  
         month: "short",
         day: "numeric",
       })
@@ -33,7 +34,7 @@ export default function EditionCard({
 
   return (
     <Link
-      href={href}
+      href={href} 
       className={`
         w-72 h-96
         flex flex-col
@@ -64,20 +65,12 @@ export default function EditionCard({
         {/* tag badge */}
         {tag && (
           <div className="mt-2 flex justify-center">
-            <div
-              className="
-                inline-flex h-[30px] items-center rounded-full px-4
-                bg-[#9D174D]/20 text-[color:var(--color-pink-300)]
-                font-medium text-sm
-              "
-            >
-              {tag}
-            </div>
+            <PostTag tag={tag} />
           </div>
         )}
       </div>
 
-      <div className="flex flex-col justify-between px-6 py-6 h-[calc(100%-228px)]">
+      <div className="flex flex-col justify-between px-6 py-6 h-[calc(100%-228px)] bg-[color:var(--color-blue-gray-900)]">
 
         {/* title + subtitle */}
         <div className="space-y-3.5">

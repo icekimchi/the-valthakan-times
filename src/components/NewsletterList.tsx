@@ -5,6 +5,7 @@ type NewsletterListProps = {
   items: ListCardItem[];
 };
 
+
 export default function NewsletterList({ items }: NewsletterListProps) {
   if (!items?.length) {
     return (
