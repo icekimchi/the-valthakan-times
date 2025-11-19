@@ -1,20 +1,25 @@
 import Link from "next/link";
 
 export default function Logo() {
-    return (
-      <>
-        <div className="flex items-center space-x-3 
-                 bg-[url('/stars_bg.svg')] 
-                 bg-cover bg-center bg-no-repeat
-                 rounded"
-        >
-          <img
-            src="/crone_logo.png"
-            alt="The Valthakan Logo"
-            className="h-[45px] w-[45px] object-contain"
-          />
-          <Link href="/" className="text-white text-3xl font-['Italianno']">The Valthakan Times</Link>
-        </div>
-      </>
-    );
+  return (
+    <Link href="/"
+      className="flex items-center space-x-3 h-full">
+      <img
+        src="/crone_logo.png"
+        alt="The Valthakan Logo"
+        width={40}
+        height={40}
+        className="object-contain"
+      />
+
+      <img
+        src="/valthakan_logo.svg"
+        alt="The Valthakan Logo"
+        width={170}
+        height={20}
+        className="object-contain"
+      />
+     
+    </Link>
+  );
 }
