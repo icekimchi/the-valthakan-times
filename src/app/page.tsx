@@ -4,10 +4,8 @@ import Navbar from "@/components/Navbar";
 import WhatsNew from "@/components/WhatsNew";
 import HomeHero from "@/components/HomeHero";
 import Footer from "@/components/Footer";
-import Image from "next/image";
-import YoutubeShortScroller from "@/components/YoutubeShortScroller";
-import { getShorts } from "@/service/youtube.service";
-import { extractYouTubeId } from "@/utils/youtube";
+import { instagramPosts } from "@/constants/instagram";
+import InstagramSection from "@/components/InstagramSection";
 
 export default async function Page() {
   return (
@@ -28,6 +26,11 @@ export default async function Page() {
       <WhatsNew />
       
       <CollaborateList/>
+
+      <InstagramSection
+        profileUrl="https://www.instagram.com/dalecsander99/"
+        posts={instagramPosts}
+      />
 
       <Footer/>
     </>

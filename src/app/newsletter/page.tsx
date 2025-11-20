@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default async function Page() {
   
-    const { items } = await fetchPagedList({ page: 1, limit: 12 });
+    const { items } = await fetchPagedList({ page: 1, limit: 20 });
     console.log(items);
     
   return (

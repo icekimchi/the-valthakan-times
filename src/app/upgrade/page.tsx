@@ -6,6 +6,7 @@ import { useState } from 'react';
 import PricingCard from '@/components/PricingCard';
 import { PLANS, BillingCycle } from "@/constants/plans";
 import Footer from '@/components/Footer';
+import ServiceCard from "@/components/ServiceCard";
 
 export default function Page() {
   const [cycle, setCycle] = useState<BillingCycle>('annual');
@@ -14,7 +15,7 @@ export default function Page() {
 
   return (
     <>
-    <main className="flex min-h-screen items-center justify-center px-6 py-10 pb-6">
+    <main className="flex flex-col min-h-screen items-center justify-center px-6 py-10 pb-6">
       <button
         onClick={() => router.back()}
         className="
@@ -29,9 +30,9 @@ export default function Page() {
       <div className="w-full space-y-6">
         {/* header */}
         <div className="text-center">
-          <h1 className="heading-sp-h1 text-white font-serif">Upgrade</h1>
+          <h1 className="heading-sp-h1 text-white font-serif">Upgrade with Patreon</h1>
           <p className="mt-4 text-base font-['Eczar'] text-[color:var(--color-blue-gray-400)]">
-            Get a little more Valthaka in your life
+            Support The Valthakan Times and unlock the same premium content on Patreon.
           </p>
         </div>
 
@@ -60,13 +61,36 @@ export default function Page() {
         </div>
 
         {/* Plancard */}
-        <div className="space-y-4 pb-20">
+        <div className="space-y-4">
           {plans.map((plan) => (
             <PricingCard key={plan.id} {...plan} />
           ))}
         </div>
       </div>
+      
+      <div className="h-px w-full my-10 bg-[color:var(--color-indigo-900)]" />
 
+      <div
+        className="
+          w-full max-w-6xl px-5 mb-10
+          flex flex-col items-center gap-8
+          md:flex-row md:justify-center md:items-stretch"
+      >
+        <div className="text-center">
+          <h1 className="text-5xl text-white font-serif">Upgrade with Patreon</h1>
+          <p className="mt-4 text-base font-['Eczar'] text-[color:var(--color-blue-gray-400)]">
+            Support The Valthakan Times and unlock the same premium content on Patreon.
+          </p>
+        </div>
+
+        <ServiceCard
+          serviceName="Patreon"
+          serviceSubtitle="Valthakan Literary Universe"
+          backgroundImage="/patreon.png"
+          badge="/patreon_badge.svg"
+          serviceLink="https://www.patreon.com/collection/1503875?view=condensed"
+        />
+      </div>
     </main>
     <Footer/>
     </>
