@@ -58,7 +58,7 @@ export default async function HomeHero() {
               The <span className="block md:inline">Valthakan Times</span>
           </h1>
           <p className="mt-3 text-[color:var(--color-blue-gray-300)] leading-6 font-['Eczar']">
-              Blending epic fantasy with practical lifewtyle advice
+              Blending epic fantasy with practical lifestyle advice
           </p>
         </div>
 

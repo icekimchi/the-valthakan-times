@@ -28,13 +28,10 @@ export type BaseCardItem = {
   tags?: string[];
 };
 
-// 카드 2종 (필요한 필드만 확장)
 export type CarouselCardItem = BaseCardItem & {
-  // 예: 캐러셀 전용 스타일/표시용 필드가 있다면 여기에
 };
 
 export type ListCardItem = BaseCardItem & {
-  // 예: 리스트 전용 배지/카테고리 같은 추가 필드
 };
 
 export type FetchParams = {

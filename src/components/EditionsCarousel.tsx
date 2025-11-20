@@ -83,7 +83,7 @@ export default function EditionsCarousel({ items }: { items: Item[] }) {
           >
             {/* Render each edition card */}
             <EditionCard
-              href={it.href}
+              href={`/newsletter/${it.id}`}
               imageSrc={"/card_img.png"}
               editionNumber={it.editionNumber}
               tag={it.tag}
