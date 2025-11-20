@@ -4,6 +4,7 @@ import Image from "next/image";
 import { PostTag } from "./PostTag";
 
 type EditionCardProps = {
+  id?: string;
   href?: string;                    // detail page link
   imageSrc?: string;                // img link ("/card_img.png")
   editionNumber: number | string;   // edtition number
