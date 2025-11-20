@@ -67,14 +67,14 @@ export default async function WhatsNew(){
           <ServiceCard
             serviceName="Spotify"
             serviceSubtitle="Valthakan on Air"
-            backgroundImage="/spotify.jpg"
+            backgroundImage="/patreon_service.png"
             badge="/spotify_badge.svg"
             serviceLink="https://open.spotify.com/show/2hkwdtpiPBRcKjVEfReKSg?si=jkBLDCobQ3evR1C0kfjEYQ&nd=1&dlsi=1e11d866f03a4c79"
           />
           <ServiceCard
             serviceName="Patreon"
             serviceSubtitle="Support our creations"
-            backgroundImage="/patreon.jpg"
+            backgroundImage="/patreon.png"
             badge="/patreon_badge.svg"
             serviceLink="https://www.patreon.com/collection/1503875?view=condensed"
           />

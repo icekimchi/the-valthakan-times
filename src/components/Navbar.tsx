@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { NAV_LINKS } from "@/constants/links";
-import { PrimaryButton } from "./PrimaryButton";
 import { SecondaryButton } from "./SecondaryButton";
 import Logo from "./Logo";
 import { useEffect } from "react";
+import SocialLinks from "./SocialLinks";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,16 +105,39 @@ export default function Navbar() {
                   </div>
                 </li>
               </ul>
+              
+              <div className="px-5 flex flex-col items-center gap-6 py-5">
+                <SocialLinks />
 
+                <Link href="/mypage" className="w-full">
+                  <div
+                    className="
+                      w-full flex flex-col items-center gap-5 px-6 py-5
+                      rounded-[16px] border border-[1px] border-[#302D9A]/20
+                      backdrop-blur-[2px] bg-[color:var(--color-card-bg)]
+                      box-border
+                    "
+                  >
+                    <img
+                      src="/Avatar.png"
+                      width={72}
+                      height={72}
+                      className="object-contain flex-shrink-0"
+                    />
+                    <div className="text-xl-figma text-center">
+                      <div className="title text-white font-semibold font-['Eczar']">
+                        Name
+                      </div>
+                      <div className="text-base-figma text-[color:var(--color-blue-gray-400)]">
+                        thevalthakantimes12@gmail.com
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              
               {/* Bottom Buttons */}
               <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-3 px-6 pb-6">
-                <Link href="/login" className="w-full">
-                  <PrimaryButton
-                    text="Login"
-                    showLeftIcon={false}
-                    showRightIcon={false}
-                  />
-                </Link>
                 <Link href="/login" className="w-full">
                   <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
                 </Link>
