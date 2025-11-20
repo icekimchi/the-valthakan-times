@@ -20,7 +20,7 @@ export default async function CollaborateList(){
           </div>
         </div>
 
-        <div className="w-full max-w-6xl mx-auto px-4 md:px-6">
+        <div className="w-full max-w-6xl mx-auto md:px-6">
           <BookRow />
           <CompanyRow />
           <PrimaryButton text="Learn More" showLeftIcon={false} showRightIcon />

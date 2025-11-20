@@ -59,11 +59,6 @@ export default function AutoMarquee({
           animation-name: marquee-reverse;
         }
 
-        /* Pause animation on hover */
-        .group:hover .marquee-track {
-          animation-play-state: paused;
-        }
-
         /* Keyframes for normal direction (right → left) */
         @keyframes marquee {
           from {
