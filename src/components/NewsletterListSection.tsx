@@ -49,7 +49,7 @@ export default function NewsletterListSection({ initialItems }: Props) {
       });
     }
 
-    // 🎯 정렬 (dateISO 기준)
+    // 🎯 sort (dateISO)
     if (filters.sort === "new") {
       list.sort(
         (a, b) => +new Date(b.dateISO ?? 0) - +new Date(a.dateISO ?? 0)
