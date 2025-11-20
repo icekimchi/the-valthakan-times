@@ -25,7 +25,7 @@ export default function InstagramSection({
   return (
     <section
       className="w-full max-w-sm mx-auto rounded-3xl
-                 px-5 py-8 text-white"
+                 py-10 mb-10 text-white"
     >
       {/* Header */}
       <header className="mb-6 text-center">
@@ -38,7 +38,7 @@ export default function InstagramSection({
       </header>
 
       {/* 3×2 grid */}
-      <div className="grid grid-cols-2 gap-3 mb-6">
+      <div className="grid grid-cols-2 gap-6 mb-6">
         {visiblePosts.map((post, index) => (
           <Link
             key={post.href + index}

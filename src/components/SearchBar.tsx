@@ -28,7 +28,7 @@ export default function SearchBar({
         e.preventDefault();
         if (onSubmit) onSubmit(value ?? "");
       }}
-      className="w-[390px] h-[52px]"
+      className="h-[52px]"
     >
       <div
         className="group flex h-full w-full items-center gap-4 rounded-lg border border-[#302D9A]/30 bg-white/5 px-4 backdrop-blur-sm transition focus-within:border-[#302D9A]/50"
