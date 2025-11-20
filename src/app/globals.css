@@ -108,11 +108,11 @@
   --color-purple-800: #5B21B6;
   --color-purple-900: #4C1D95;
 
+  /* Gradient */
+  --gradient-yellow: linear-gradient(to right, rgb(247 219 156), rgb(201 169 105));
+
   /* Figma Design Variables - Fonts */
   --font-inter: 'Inter', sans-serif;
-
-  /* Figma Design Variables - Shadows */
-  --shadow-yellow: 0px 0px 20px 0px rgba(248, 198, 48, 0.4);
 
   /* Figma Design Variables - Spacing */
   --spacing-0: 0;
@@ -126,10 +126,15 @@
   --border-radius-base: 12px;
 
   /* shadow */
+  --shadow-yellow: 0px 0px 20px 0px rgba(248, 198, 48, 0.4);
   --shadow-purple-glow: 0 0 40px rgba(147, 112, 219, 0.5);
   --text-shadow-purple: 0 0 40px rgba(147, 112, 219, 0.5);
   --shadow-indigo: 0 0 20px rgba(67, 56, 202, 0.5);
   --text-shadow-indigo: 0 0 20px rgba(67,56,202,.5);
+  --filter-box-bg: #302D9A4D;
+
+  --color-card-bg: #18143DB3;
+  --color-card-stroke: #302D9A33;
 }
 
 @theme inline {
@@ -241,6 +246,10 @@
 
   /* Figma Common Styles - Shadows */
   --shadow-yellow: var(--shadow-yellow);
+  --gradient-yellow: var(--gradient-yellow);
+  --color-card-bg: var(--color-card-bg);
+  --color-card-stroke: var(--color-card-stroke);
+  --filter-box-bg: var(--filter-box-bg)
 
   /* Figma Common Styles - Spacing */
   --spacing-0: var(--spacing-0);

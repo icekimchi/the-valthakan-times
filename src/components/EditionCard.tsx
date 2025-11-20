@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { PostTag } from "./PostTag";
 
 type EditionCardProps = {
+  id?: string;
   href?: string;                    // detail page link
   imageSrc?: string;                // img link ("/card_img.png")
   editionNumber: number | string;   // edtition number
@@ -25,7 +27,7 @@ export default function EditionCard({
 }: EditionCardProps) {
   const formattedDate = dateISO
     ? new Date(dateISO).toLocaleDateString(undefined, {
-        year: "numeric",
+        year: "numeric",  
         month: "short",
         day: "numeric",
       })
@@ -33,65 +35,62 @@ export default function EditionCard({
 
   return (
     <Link
-      href={href}
+      href={href} 
       className={`
-        w-[300px] h-[433px]
-        block overflow-hidden rounded-[8px] border border-[1px] border-[color:var(--color-indigo-900)]/20
-        bg-[color:var(--color-deep-bg)]/50 shadow-[0_0_20px_rgba(0,0,0,0.15)] 
+        w-72 h-96
+        flex flex-col
+        overflow-hidden rounded-[8px] border border-[1px] border-[color:var(--color-card-stroke)]
+        bg-[color:var(--color-card-bg)] shadow-[0_0_20px_rgba(0,0,0,0.15)]
         ${className}
       `}
     >
-      {/* image */}
-      <div className="relative w-full h-[228px] aspect-[2880/1800]">
-        <Image
-          src={imageSrc}
-          alt=""
-          fill
-          priority={false}
-          sizes="(min-width: 768px) 768px, 100vw"
-          className="object-cover px-5"
-        />
 
-        {/* edtition number */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span
-            className="
-              text-white text-6xl md:text-7xl font-['Italianno'] leading-none
-              [text-shadow:_0_0_40px_rgba(255,255,255,0.5)]
-            "
-          >
-            #{editionNumber}
-          </span>
+      {/* === Image & Badge === */}
+      <div
+        className="
+          h-56 w-full self-stretch
+          px-[36px] pt-[24px] pb-[13px]
+          relative
+          flex flex-col items-center
+        "
+      >
+        <div className="relative w-full h-full">
+          <Image
+            src={imageSrc}
+            alt=""
+            fill
+            className="object-contain"
+          />
         </div>
+
+        {/* tag badge */}
+        {tag && (
+          <div className="mt-2 flex justify-center">
+            <PostTag tag={tag} />
+          </div>
+        )}
       </div>
 
-      {/* text */}
-      <div className="px-6 py-6 flext h-[197px] flex-col space-y-3.5">
-        <div className="flex items-center justify-between text-sm text-[color:var(--color-blue-gray-300)] font-['Eczar']">
-          <span
-            className="
-              inline-flex h-[30px] items-center rounded-full px-3
-              bg-[#9D174D]/20
-              text-[color:var(--color-pink-300)] font-medium
-            "
-          >
-            {tag}
-          </span>
-          {formattedDate && (
-            <span className="flex items-center font-['inter']">
-              {formattedDate}
-            </span>
+      <div className="flex flex-col justify-between px-6 py-6 h-[calc(100%-228px)] bg-[color:var(--color-blue-gray-900)]">
+
+        {/* title + subtitle */}
+        <div className="space-y-3.5">
+          <h3 className="text-white heading-sp-h3-eczar leading-snug">
+            {title}
+          </h3>
+
+          {subtitle && (
+            <p className="text-[color:var(--color-blue-gray-300)] font-['Inter']">
+              {subtitle}
+            </p>
           )}
         </div>
 
-        <h3 className="text-white heading-sp-h3-eczar leading-snug">
-          {title}
-        </h3>
-
-        {subtitle && (
-          <p className="text-[color:var(--color-blue-gray-300)] font-['Inter']">
-            {subtitle}
-          </p>
+        {/* date */}
+        {formattedDate && (
+          <div className="flex justify-end text-sm text-[color:var(--color-blue-gray-300)] font-['Inter']">
+            <span>{formattedDate}</span>
+          </div>
         )}
       </div>
     </Link>

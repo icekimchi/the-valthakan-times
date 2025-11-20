@@ -12,20 +12,20 @@ function CompanyCard({ src, alt }: { src: string; alt: string }) {
 
 export default function CompanyRow() {
   const items = [
-    <CompanyCard key="c1" src="/company1.avif" alt="brand1" />,
-    <CompanyCard key="c2" src="/company2.png" alt="brand2" />,
-    <CompanyCard key="c3" src="/company3.avif" alt="brand3" />,
-    <CompanyCard key="c4" src="/company4.png" alt="brand4" />,
-    <CompanyCard key="c5" src="/company5.avif" alt="brand5" />,
-    <CompanyCard key="c6" src="/company6.avif" alt="brand6" />,
-    <CompanyCard key="c7" src="/company7.avif" alt="brand7" />,
+    <CompanyCard key="c1" src="/company/company1.avif" alt="brand1" />,
+    <CompanyCard key="c2" src="/company/company2.png" alt="brand2" />,
+    <CompanyCard key="c3" src="/company/company3.avif" alt="brand3" />,
+    <CompanyCard key="c4" src="/company/company4.png" alt="brand4" />,
+    <CompanyCard key="c5" src="/company/company5.avif" alt="brand5" />,
+    <CompanyCard key="c6" src="/company/company6.avif" alt="brand6" />,
+    <CompanyCard key="c7" src="/company/company7.avif" alt="brand7" />,
   ];
 
   return (
     <AutoMarquee
       items={items}
       speed={32}
-      reverse            // ← 왼→오른
+      reverse           
       gap="gap-10"
       className="py-6"
     />

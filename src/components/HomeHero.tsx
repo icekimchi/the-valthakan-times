@@ -31,32 +31,36 @@ export default async function HomeHero() {
         rounded-[16px]
         border border-[1px] border-[#302D9A]/20
         backdrop-blur-[2px]
-        bg-[#120F2E]/50
+        bg-[color:var(--color-card-bg)]
         flex flex-col items-center gap-6 px-8 pt-6 pb-8 
         box-border"
       >
         <button
           className="
-            self-center mb-2
+            flex self-center mb-2 gap-2
             bg-[#302D9A]/20
-            text-[color:var(--color-indigo-500)] text-sm font-semibold font-['Eczar']
+            text-[color:var(--color-indigo-500)] text-base font-semibold font-['Eczar']
             px-4 py-2 rounded-full
           "
         >
-          Unlock the Archives
+          <img
+            src="/crown.png"
+            alt="crown"
+            className="flex object-contain"
+          />
+          by Daniel Alexander
         </button>
         
 
         {/* Copy */}
         <div className="w-full text-center">
-          <h1 className="text-white text-5xl [text-shadow:_0px_0px_40px_rgb(147_112_219_/_0.50)]">
+          <h1 className="text-white text-6xl [text-shadow:_0px_0px_40px_rgb(147_112_219_/_0.50)]">
               The <span className="block md:inline">Valthakan Times</span>
           </h1>
           <p className="mt-3 text-[color:var(--color-blue-gray-300)] leading-6 font-['Eczar']">
-              Where fantasy meets truth, and every story reveals a hidden world.
+              Blending epic fantasy with practical lifestyle advice
           </p>
         </div>
-
 
         {/* CTAs */}
         <div className="flex flex-col gap-4 w-full justify-center">

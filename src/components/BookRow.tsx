@@ -12,11 +12,11 @@ function BookCard({ src, alt }: { src: string; alt: string }) {
 
 export default function BookRow() {
   const items = [
-    <BookCard key="b1" src="/book1.webp" alt="book1" />,
-    <BookCard key="b2" src="/book2.avif" alt="book2" />,
-    <BookCard key="b3" src="/book3.avif" alt="book3" />,
-    <BookCard key="b4" src="/book4.avif" alt="book4" />,
-    <BookCard key="b5" src="/book5.avif" alt="book5" />,
+    <BookCard key="b1" src="/books/book1.webp" alt="book1" />,
+    <BookCard key="b2" src="/books/book2.avif" alt="book2" />,
+    <BookCard key="b3" src="/books/book3.avif" alt="book3" />,
+    <BookCard key="b4" src="/books/book4.avif" alt="book4" />,
+    <BookCard key="b5" src="/books/book5.avif" alt="book5" />,
   ];
 
   return (
