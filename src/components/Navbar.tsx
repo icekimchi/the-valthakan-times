@@ -70,7 +70,7 @@ export default function Navbar() {
           >
             <div className="h-full flex flex-col relative">
               {/* Menu Items */}
-              <ul className="flex flex-col text-white text-lg text-center font-medium px-6">
+              <ul className="flex flex-col text-white text-lg text-sm text-center font-medium px-6">
                 <li className="-mx-6 list-none">
                   <div className="ring-1 ring-[#302D9A]/20 divide-y divide-[#302D9A]/20 overflow-hidden">
                     {NAV_LINKS
@@ -87,7 +87,7 @@ export default function Navbar() {
                 {/* Patreon & Shop */}
                 <li className="list-none">
                   <div className="-mx-6 border border-[#302D9A]/20">
-                    <div className="grid grid-cols-2 divide-x divide-[#302D9A]/20 items-stretch h-[130px]">
+                    <div className="grid grid-cols-2 divide-x divide-[#302D9A]/20 items-stretch h-[100px]">
                       {NAV_LINKS.filter((l) => l.name === "Patreon" || l.name === "Shop").map((link) => (
                         <Link
                           key={link.name}
@@ -95,7 +95,7 @@ export default function Navbar() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setIsOpen(false)}
-                          className="flex items-center justify-center gap-2-5 h-full py-[20px]"
+                          className="flex items-center text-sm justify-center gap-2-5 h-full py-[20px]"
                         >
                           <img src={link.image} alt={link.name} className="w-5 h-5" />
                           <span>{link.name}</span>
@@ -113,29 +113,29 @@ export default function Navbar() {
 
                 <Link href="/mypage" className="w-full">
                   <div
-                      className="
-                        w-full flex flex-col items-center gap-5 px-6 py-4
-                        rounded-[16px] border border-[1px] border-[#302D9A]/20
-                        backdrop-blur-[2px] bg-[color:var(--color-card-bg)]
-                        box-border
-                      "
-                    >
-                      <img
-                        src="/Avatar.png"
-                        width={48}
-                        height={48}
-                        className="object-contain flex-shrink-0"
+                    className="
+                      w-full flex flex-col items-center gap-5 px-6 py-2
+                      rounded-[16px] border border-[1px] border-[#302D9A]/20
+                      backdrop-blur-[2px] bg-[color:var(--color-card-bg)]
+                      box-border
+                    "
+                  >
+                    <img
+                      src="/Avatar.png"
+                      width={48}
+                      height={48}
+                      className="object-contain"
                       />
-                      <div className="text-xl-figma text-center">
-                        <div className="title text-white font-semibold font-['Eczar']">
-                          Name
-                        </div>
-                        <div className="text-base-figma text-[color:var(--color-blue-gray-400)]">
-                          thevalthakantimes12@gmail.com
-                        </div>
+                    <div className="text-xl-figma text-center">
+                      <div className="title text-white font-semibold font-['Eczar']">
+                        Name
+                      </div>
+                      <div className="text-base-figma text-[color:var(--color-blue-gray-400)]">
+                        thevalthakantimes12@gmail.com
                       </div>
                     </div>
-                  </Link>                    
+                  </div>
+                </Link>                    
 
                 <Link href="/login" className="w-full">
                   <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
