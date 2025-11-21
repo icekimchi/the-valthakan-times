@@ -66,108 +66,80 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "calc(100vh - 60px)" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="
-              fixed top-[60px] left-0 right-0
-              bg-[color:var(--color-blue-gray-900)]
-              z-[100] md:hidden
-            "
+            className="fixed top-[60px] left-0 right-0 bg-[color:var(--color-blue-gray-900)] z-[100] md:hidden overflow-hidden"
           >
-            {/* 전체 높이를 꽉 채우는 flex 컨테이너 */}
-            <div className="h-full flex flex-col">
-              {/* 위쪽: 메뉴 + 소셜 + 프로필 카드 (스크롤 영역) */}
-              <div className="flex-1 flex flex-col overflow-y-auto">
-                {/* Menu Items */}
-                <ul className="flex flex-col text-white text-lg text-center font-medium px-6 pt-4">
-                  <li className="-mx-6 list-none">
-                    <div className="ring-1 ring-[#302D9A]/20 divide-y divide-[#302D9A]/20 overflow-hidden">
-                      {NAV_LINKS
-                        .filter((l) => l.name !== "Patreon" && l.name !== "Shop")
-                        .map((link) => (
-                          <div
-                            key={link.name}
-                            className="py-[27px] flex items-center justify-center gap-3"
-                          >
-                            <img
-                              src={link.image}
-                              alt={link.name}
-                              className="h-5 w-5 object-contain"
-                            />
-                            <Link href={link.href} onClick={() => setIsOpen(false)}>
-                              {link.name}
-                            </Link>
-                          </div>
-                        ))}
+            <div className="h-full flex flex-col relative">
+              {/* Menu Items */}
+              <ul className="flex flex-col text-white text-lg text-center font-medium px-6">
+                <li className="-mx-6 list-none">
+                  <div className="ring-1 ring-[#302D9A]/20 divide-y divide-[#302D9A]/20 overflow-hidden">
+                    {NAV_LINKS
+                      .filter((l) => l.name !== "Patreon" && l.name !== "Shop")
+                      .map((link) => (
+                        <div key={link.name} className="py-[20px] flex items-center justify-center gap-3">
+                          <img src={link.image} alt={link.name} className="h-5 w-5 object-contain" />
+                          <Link href={link.href} onClick={() => setIsOpen(false)}>{link.name}</Link>
+                        </div>
+                      ))}
+                  </div>
+                </li>
+                
+                {/* Patreon & Shop */}
+                <li className="list-none">
+                  <div className="-mx-6 border border-[#302D9A]/20">
+                    <div className="grid grid-cols-2 divide-x divide-[#302D9A]/20 items-stretch h-[130px]">
+                      {NAV_LINKS.filter((l) => l.name === "Patreon" || l.name === "Shop").map((link) => (
+                        <Link
+                          key={link.name}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center justify-center gap-2-5 h-full py-[27px]"
+                        >
+                          <img src={link.image} alt={link.name} className="w-5 h-5" />
+                          <span>{link.name}</span>
+                        </Link>
+                      ))}
                     </div>
-                  </li>
+                  </div>
+                </li>
+              </ul>
+              
+              <div className="px-5 flex flex-col items-center gap-6 py-5">
+                <SocialLinks />
 
-                  {/* Patreon & Shop */}
-                  <li className="list-none mt-4">
-                    <div className="-mx-6 border border-[#302D9A]/20">
-                      <div className="grid grid-cols-2 divide-x divide-[#302D9A]/20 items-stretch h-[159px]">
-                        {NAV_LINKS.filter(
-                          (l) => l.name === "Patreon" || l.name === "Shop"
-                        ).map((link) => (
-                          <Link
-                            key={link.name}
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setIsOpen(false)}
-                            className="flex items-center justify-center gap-2-5 h-full py-[27px]"
-                          >
-                            <img
-                              src={link.image}
-                              alt={link.name}
-                              className="w-5 h-5"
-                            />
-                            <span>{link.name}</span>
-                          </Link>
-                        ))}
+                <Link href="/mypage" className="w-full">
+                  <div
+                    className="
+                      w-full flex flex-col items-center gap-5 px-6 py-5
+                      rounded-[16px] border border-[1px] border-[#302D9A]/20
+                      backdrop-blur-[2px] bg-[color:var(--color-card-bg)]
+                      box-border
+                    "
+                  >
+                    <img
+                      src="/Avatar.png"
+                      width={72}
+                      height={72}
+                      className="object-contain flex-shrink-0"
+                    />
+                    <div className="text-xl-figma text-center">
+                      <div className="title text-white font-semibold font-['Eczar']">
+                        Name
+                      </div>
+                      <div className="text-base-figma text-[color:var(--color-blue-gray-400)]">
+                        thevalthakantimes12@gmail.com
                       </div>
                     </div>
-                  </li>
-                </ul>
-
-                {/* 🔽 여기서부터 소셜~프로필 카드 (요 부분만 바꿔도 된다고 하셨던 부분) */}
-                <div className="px-5 flex flex-col items-center gap-6 py-5">
-                  <SocialLinks />
-
-                  <Link href="/mypage" className="w-full">
-                    <div
-                      className="
-                        w-full flex flex-col items-center gap-5 px-6 py-5
-                        rounded-[16px] border border-[1px] border-[#302D9A]/20
-                        backdrop-blur-[2px] bg-[color:var(--color-card-bg)]
-                        box-border
-                      "
-                    >
-                      <img
-                        src="/Avatar.png"
-                        width={72}
-                        height={72}
-                        className="object-contain flex-shrink-0"
-                      />
-                      <div className="text-xl-figma text-center">
-                        <div className="title text-white font-semibold font-['Eczar']">
-                          Name
-                        </div>
-                        <div className="text-base-figma text-[color:var(--color-blue-gray-400)]">
-                          thevalthakantimes12@gmail.com
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </div>
-
-              {/* 아래쪽 버튼 영역: flex 하단에 붙게 (absolute 제거) */}
-              <div className="w-full flex flex-col items-center gap-3 px-6 pb-6 mt-auto">
+              
+              {/* Bottom Buttons */}
+              <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-3 px-6 pb-6">
                 <Link href="/login" className="w-full">
-                  <SecondaryButton
-                    text="Partner With Us"
-                    showLeftIcon={false}
-                    showRightIcon={false}
-                  />
+                  <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
                 </Link>
               </div>
             </div>
