@@ -106,17 +106,15 @@ export default function Navbar() {
                 </li>
               </ul>
               
-              
-              
+            
               {/* Bottom Buttons */}
-              <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-3 px-6 pb-6">
-                <div className="px-5 flex flex-col items-center gap-6 py-5">
-                  <SocialLinks />
+              <div className="mt-auto w-full flex flex-col items-center gap-6 px-6 mb-6 pb-6 pb-[env(safe-area-inset-bottom)]">
+                <SocialLinks />
 
-                  <Link href="/mypage" className="w-full">
-                    <div
+                <Link href="/mypage" className="w-full">
+                  <div
                       className="
-                        w-full flex flex-col items-center gap-5 px-6 py-5
+                        w-full flex flex-col items-center gap-5 px-6 py-4
                         rounded-[16px] border border-[1px] border-[#302D9A]/20
                         backdrop-blur-[2px] bg-[color:var(--color-card-bg)]
                         box-border
@@ -124,8 +122,8 @@ export default function Navbar() {
                     >
                       <img
                         src="/Avatar.png"
-                        width={72}
-                        height={72}
+                        width={48}
+                        height={48}
                         className="object-contain flex-shrink-0"
                       />
                       <div className="text-xl-figma text-center">
@@ -137,8 +135,8 @@ export default function Navbar() {
                         </div>
                       </div>
                     </div>
-                  </Link>
-                </div>
+                  </Link>                    
+
                 <Link href="/login" className="w-full">
                   <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
                 </Link>
