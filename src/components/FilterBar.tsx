@@ -77,18 +77,18 @@ export default function FilterBar({ filters, onChange }: Props) {
             className="flex items-center justify-between min-w-[56px] h-10 px-4 rounded-md border border-white/10 bg-[var(--color-card-bg)] font-['inter'] text-white"
           >
             <span>{getEditionLabel(filters.edition)}</span>
-            <span className="text-[10px]">▾</span>
+            <span className="text-[8px]">▾</span>
           </button>
 
           {open === "edition" && (
-            <div className="absolute left-0 mt-2 w-[189px] rounded-md border border-white/10 bg-[var(--color-card-bg)] shadow-lg z-30">
+            <div className="absolute left-0 mt-2 p-2 w-[189px] rounded-md border border-white/10 bg-[var(--color-blue-gray-900)] shadow-lg z-30">
               {editionOptions.map(option => (
                 <button
                   key={option.value}
                   type="button"
                   onClick={() => selectEdition(option.value)}
                   className={[
-                    "flex w-full items-center px-4 h-10 text-left text-sm",
+                    "flex w-full items-center px-4 h-10 text-left text-white text-sm font-['inter']",
                     filters.edition === option.value
                       ? "bg-[var(--color-indigo-700)]"
                       : "bg-[var(--filter-box-bg)] hover:bg-white/5",
@@ -109,7 +109,7 @@ export default function FilterBar({ filters, onChange }: Props) {
             className="flex items-center justify-between min-w-[56px] h-10 px-4 rounded-md border border-white/10 bg-[var(--color-card-bg)] font-['inter'] text-white"
           >
             <span>{getPriceLabel(filters.price)}</span>
-            <span className="text-[10px] text-white">▾</span>
+            <span className="text-[8px] text-white">▾</span>
           </button>
 
           {open === "price" && (
@@ -120,7 +120,7 @@ export default function FilterBar({ filters, onChange }: Props) {
                   type="button"
                   onClick={() => selectPrice(option.value)}
                   className={[
-                    "flex w-full items-center px-4 h-10 text-left text-white font-['inter']",
+                    "flex w-full items-center px-4 h-10 text-left text-white text-sm font-['inter']",
                     filters.price === option.value
                       ? "bg-[var(--color-indigo-700)]"
                       : "bg-[var(--filter-box-bg)] hover:bg-white/5",
@@ -138,10 +138,10 @@ export default function FilterBar({ filters, onChange }: Props) {
           <button
             type="button"
             onClick={() => toggle("sort")}
-            className="flex items-center justify-between min-w-[56px] h-10 px-4 rounded-md border border-white/10 bg-[var(--color-card-bg)] font-['inter'] text-white"
-          >
+            className="flex items-center justify-between min-w-[56px] h-10 px-4 rounded-md border border-white/10 bg-[var(--color-card-bg)] font-['inter'] text-white">
+          
             <span>{getSortLabel(filters.sort)}</span>
-            <span className="font-['inter'] text-[10px]">▾</span>
+            <span className="font-['inter'] text-[8px]">▾</span>
           </button> 
 
           {open === "sort" && (
@@ -152,7 +152,7 @@ export default function FilterBar({ filters, onChange }: Props) {
                   type="button"
                   onClick={() => selectSort(option.value)}
                   className={[
-                    "flex w-full items-center px-4 h-10 text-left font-['inter']",
+                    "flex w-full items-center px-4 h-10 text-left text-white text-sm font-['inter']",
                     filters.sort === option.value
                       ? "bg-[var(--color-indigo-700)]"
                       : "bg-[var(--filter-box-bg)] hover:bg-white/5",
