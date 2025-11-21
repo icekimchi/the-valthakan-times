@@ -25,15 +25,15 @@ export default function InstagramSection({
   return (
     <section
       className="w-full max-w-sm mx-auto rounded-3xl
-                 py-10 mb-10 text-white"
+                 py-10 px-5 mb-10 text-white"
     >
       {/* Header */}
       <header className="mb-6 text-center">
         <h1 className="text-center text-white text-5xl leading-[68px] text-shadow-[var(--shadow-indigo)] px-5">
-          Our Latest Edition
+          On Instagram
         </h1>
         <p className="text-sm text-[color:var(--color-blue-gray-400)] font-['Eczar']">
-          {description}
+          Stories, moments, and musings from the creator behind Valthakan.
         </p>
       </header>
 

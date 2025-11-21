@@ -269,7 +269,7 @@ export default function AboutPage() {
         <div className="h-px bg-gradient-to-r from-transparent via-indigo-700/30 to-transparent my-8 sm:my-12"></div>
 
         {/* As Seen In The Valthakan Times Section */}
-        <section className="bg-blue-gray-900/20 px-5 py-12 sm:py-16 md:py-20 md:px-8 xl:px-12 animate-fade-in">
+        <section id="social-section" className="bg-blue-gray-900/20 px-5 py-12 sm:py-16 md:py-20 md:px-8 xl:px-12 animate-fade-in">
           <div className="max-w-[var(--max-w-container-lg)] xl:max-w-[var(--max-w-container-2xl)] mx-auto flex flex-col gap-8 sm:gap-10">
             <div className="flex flex-col gap-2 items-start sm:items-center">
               <h2 className="heading-sp-h2 sm:text-4xl md:text-5xl xl:text-6xl text-white text-left sm:text-center">

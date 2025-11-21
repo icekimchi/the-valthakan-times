@@ -69,7 +69,7 @@ export default function Navbar() {
           >
             <div className="h-full flex flex-col relative">
               {/* Menu Items */}
-              <ul className="flex flex-col text-white text-lg text-sm text-center font-medium px-6">
+              <ul className="flex flex-col text-white text-lg text-sm text-center font-medium px-6 py-4">
                 <li className="-mx-6 list-none">
                   <div className="ring-1 ring-[#302D9A]/20 divide-y divide-[#302D9A]/20 overflow-hidden">
                     {NAV_LINKS
@@ -86,7 +86,7 @@ export default function Navbar() {
                 {/* Patreon & Shop */}
                 <li className="list-none">
                   <div className="-mx-6 border border-[#302D9A]/20">
-                    <div className="grid grid-cols-2 divide-x divide-[#302D9A]/20 items-stretch h-[100px]">
+                    <div className="grid grid-cols-2 divide-x divide-[#302D9A]/20 items-stretch h-[130px]">
                       {NAV_LINKS.filter((l) => l.name === "Patreon" || l.name === "Shop").map((link) => (
                         <Link
                           key={link.name}

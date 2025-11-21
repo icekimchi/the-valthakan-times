@@ -3,6 +3,12 @@ import CompanyRow from "./CompanyRow";
 import { PrimaryButton } from "./PrimaryButton";
 
 export default async function CollaborateList(){
+
+  const handleScroll = () => {
+    const section = document.getElementById("social-section");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  };
+
     return(
       <section
         id="Hey Crone What's New?"
@@ -23,7 +29,9 @@ export default async function CollaborateList(){
         <div className="w-full max-w-6xl mx-auto md:px-6">
           <BookRow />
           <CompanyRow />
-          <PrimaryButton text="Learn More" showLeftIcon={false} showRightIcon />
+          <a href="/about#social-section" className="w-full inline-block">
+            <PrimaryButton text="Learn More" showLeftIcon={false} showRightIcon />
+          </a>
         </div>
         
       </section>
