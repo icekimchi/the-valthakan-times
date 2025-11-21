@@ -61,7 +61,7 @@ export default function InstagramSection({
       </div>
 
       {/* See more posts button */}
-      <Link href="/login" className="w-full">
+      <Link href="https://www.instagram.com/dalecsander99/" className="w-full">
         <PrimaryButton
           text="See more posts →"
           showLeftIcon={false}
