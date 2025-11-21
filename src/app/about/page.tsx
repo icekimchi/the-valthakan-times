@@ -69,7 +69,7 @@ export default function AboutPage() {
             {/* Profile Image */}
             <div className="relative h-[240px] sm:h-[300px] md:h-[340px] xl:h-[390px] rounded-lg shadow-[var(--shadow-indigo-md)] overflow-hidden mt-4">
               <div className="absolute left-4 sm:left-6 md:left-7 right-4 sm:right-6 md:right-10 top-4 z-10">
-                <h2 className="heading-sp-h1 sm:text-4xl md:text-5xl xl:text-6xl text-white">
+                <h2 className="heading-sp-h1 sm:text-4xl md:text-4xl xl:text-6xl text-white">
                   Daniel Alexander
                 </h2>
               </div>
