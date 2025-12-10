@@ -9,6 +9,7 @@ export const SecondaryButton = ({
   return (
     <button
       className={`
+        
         flex items-center justify-center flex-row
         w-full
         rounded-[8px]
@@ -28,6 +29,4 @@ export const SecondaryButton = ({
       {showRightIcon && <ArrowRight className="w-4 h-4" />}
     </button>
   );
-
-  
 };

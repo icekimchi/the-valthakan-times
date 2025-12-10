@@ -8,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-yellow': 'var(--gradient-yellow)',
+      },
+      
       boxShadow: {
         indigo: "0 0 20px rgba(var(--color-indigo-600), 0.5)",
         yellowGlow: "0 0 20px rgba(var(--color-yellow-500), 0.5)",

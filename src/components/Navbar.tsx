@@ -127,7 +127,9 @@ export default function Navbar() {
               
               {/* Bottom Buttons */}
               <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-3 px-6 pb-6">
-                <SocialLinks/>
+                <div className="py-4">
+                  <SocialLinks/>    
+                </div>
                 <PrimaryButton text="Login" showLeftIcon={false} showRightIcon={false} />
                 <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
               </div>
