@@ -4,10 +4,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { NAV_LINKS } from "@/constants/links";
+import { PrimaryButton } from "./PrimaryButton";
 import { SecondaryButton } from "./SecondaryButton";
 import Logo from "./Logo";
 import { useEffect } from "react";
 import SocialLinks from "./SocialLinks";
+
+const MAIN_LINKS = NAV_LINKS.filter(
+  (l) => l.name !== "Patreon" && l.name !== "Shop"
+);
+const SPECIAL_LINKS = NAV_LINKS.filter(
+  (l) => l.name === "Patreon" || l.name === "Shop"
+);
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,19 +34,15 @@ export default function Navbar() {
 
   return (
     <>
-    <nav className="fixed top-0 w-full z-50 bg-[#0C0922]/80 h-[64px]   
-                    backdrop-brightness-[85%] backdrop-blur-[5px]
-                    pl-5 pr-3.5 py-3 md:px-10 md:py-5 shadow-[0px_0px_20px_0px_rbga(67, 56, 202, 0.50)]">
+    <nav
+        className="
+          fixed top-0 w-full z-50 
+          bg-[#0C0922]/80 backdrop-brightness-[85%] backdrop-blur-[5px]
+          pl-5 pr-3.5 py-3 md:px-10 md:py-5
+        "
+      >
       <div className="flex h-full items-center justify-between">
-        <div
-          className="
-            bg-[url('/stars_bg.svg')]
-            bg-cover bg-center bg-no-repeat
-            w-[221px] h-[40px]
-          "
-        >
-          <Logo />
-        </div>
+        <Logo/>
 
         {/* Hamburger Menu (Mobile) */}
         <button
@@ -58,6 +62,7 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -65,38 +70,53 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "calc(100vh - 60px)" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-[60px] left-0 right-0 bg-[color:var(--color-blue-gray-900)] z-[100] md:hidden overflow-hidden"
+            className="
+              fixed top-[60px] left-0 right-0 z-[100] md:hidden
+              bg-blue-gray-900 overflow-hidden
+            "
           >
             <div className="h-full flex flex-col relative">
-              {/* Menu Items */}
-              <ul className="flex flex-col text-white text-lg text-sm text-center font-medium px-6 py-4">
-                <li className="-mx-6 list-none">
-                  <div className="ring-1 ring-[#302D9A]/20 divide-y divide-[#302D9A]/20 overflow-hidden">
-                    {NAV_LINKS
-                      .filter((l) => l.name !== "Patreon" && l.name !== "Shop")
-                      .map((link) => (
-                        <div key={link.name} className="py-[20px] flex items-center justify-center gap-3">
-                          <img src={link.image} alt={link.name} className="h-5 w-5 object-contain" />
-                          <Link href={link.href} onClick={() => setIsOpen(false)}>{link.name}</Link>
-                        </div>
-                      ))}
+
+              {/* Main Links */}
+              <ul className="flex flex-col text-white text-lg font-medium px-6 text-center">
+                <li className="-mx-6">
+                  <div className="ring-1 ring-[#302D9A]/20 divide-y divide-[#302D9A]/20">
+                    {MAIN_LINKS.map((link) => (
+                      <div
+                        key={link.name}
+                        className="py-[27px] flex items-center justify-center gap-3"
+                      >
+                        <img
+                          src={link.image}
+                          alt={link.name}
+                          className="h-5 w-5"
+                        />
+                        <Link href={link.href} onClick={() => setIsOpen(false)}>
+                          {link.name}
+                        </Link>
+                      </div>
+                    ))}
                   </div>
                 </li>
                 
-                {/* Patreon & Shop */}
-                <li className="list-none">
+                {/* Patreon + Shop */}
+                <li>
                   <div className="-mx-6 border border-[#302D9A]/20">
-                    <div className="grid grid-cols-2 divide-x divide-[#302D9A]/20 items-stretch h-[130px]">
-                      {NAV_LINKS.filter((l) => l.name === "Patreon" || l.name === "Shop").map((link) => (
+                    <div className="grid grid-cols-2 divide-x divide-[#302D9A]/20 h-[159px]">
+                      {SPECIAL_LINKS.map((link) => (
                         <Link
                           key={link.name}
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setIsOpen(false)}
-                          className="flex items-center text-sm justify-center gap-2-5 h-full py-[20px]"
+                          className="flex items-center justify-center gap-2 h-full py-[27px]"
                         >
-                          <img src={link.image} alt={link.name} className="w-5 h-5" />
+                          <img
+                            src={link.image}
+                            alt={link.name}
+                            className="w-5 h-5"
+                          />
                           <span>{link.name}</span>
                         </Link>
                       ))}
@@ -105,40 +125,11 @@ export default function Navbar() {
                 </li>
               </ul>
               
-            
               {/* Bottom Buttons */}
-              <div className="mt-auto w-full flex flex-col items-center gap-6 px-6 mb-6 pb-6 pb-[env(safe-area-inset-bottom)]">
-                <SocialLinks />
-
-                <Link href="/mypage" className="w-full">
-                  <div
-                    className="
-                      w-full flex flex-col items-center gap-5 px-6 py-2
-                      rounded-[16px] border border-[1px] border-[#302D9A]/20
-                      backdrop-blur-[2px] bg-[color:var(--color-card-bg)]
-                      box-border
-                    "
-                  >
-                    <img
-                      src="/Avatar.png"
-                      width={48}
-                      height={48}
-                      className="object-contain"
-                      />
-                    <div className="text-xl-figma text-center">
-                      <div className="title text-white font-semibold font-['Eczar']">
-                        Name
-                      </div>
-                      <div className="text-base-figma text-[color:var(--color-blue-gray-400)]">
-                        thevalthakantimes12@gmail.com
-                      </div>
-                    </div>
-                  </div>
-                </Link>                    
-
-                <Link href="/login" className="w-full">
-                  <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
-                </Link>
+              <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-3 px-6 pb-6">
+                <SocialLinks/>
+                <PrimaryButton text="Login" showLeftIcon={false} showRightIcon={false} />
+                <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
               </div>
             </div>
           </motion.div>
