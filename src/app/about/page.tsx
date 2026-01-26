@@ -26,16 +26,6 @@ interface SocialStats {
   };
 }
 
-function formatNumber(num: number | null): string {
-  if (num === null) return "-";
-  if (num >= 1000000) {
-    return (num / 1000000).toFixed(1) + "M";
-  }
-  if (num >= 1000) {
-    return (num / 1000).toFixed(1) + "K";
-  }
-  return num.toString();
-}
 
 export default function AboutPage() {
   const [socialStats, setSocialStats] = useState<SocialStats | null>(null);

@@ -14,14 +14,28 @@ export default async function Page() {
 
       <HomeHero />
 
-      <div className="
-          w-full flex flex-col justify-center items-center gap-8
-        ">
-        <h1 className="text-center text-white text-6xl leading-[68px] text-shadow-[var(--shadow-indigo)] px-5">
-          Our Latest Edition
-        </h1>
-        <LatestEdition />
+      <div className="w-full py-24">
+        <div className="mx-auto max-w-[1106px] grid grid-cols-12 gap-[22px] px-5">
+          
+          {/* Title */}
+          <h1
+            className="
+              col-span-12
+              text-center text-white text-6xl leading-[68px]
+              text-shadow-[var(--shadow-indigo)]
+            "
+          >
+            Our Latest Edition
+          </h1>
+
+          {/* Editions */}
+          <div className="col-span-12">
+            <LatestEdition />
+          </div>
+
+        </div>
       </div>
+
 
       <WhatsNew />
       
