@@ -52,46 +52,57 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-blue-gray-900">
+      <main className="min-h-screen">
         {/* Hero Section - Meet the Authors */}
-        <section className="bg-blue-gray-900/20 px-5 py-12 sm:py-16 md:py-20 md:px-8 xl:px-12">
-          <div className="max-w-[var(--max-w-container-lg)] mx-auto flex flex-col gap-8 sm:gap-10 mt-20">
-            {/* Profile Image */}
-            <div className="relative h-[240px] sm:h-[300px] md:h-[340px] xl:h-[390px] rounded-lg shadow-[var(--shadow-indigo-md)] overflow-hidden mt-4">
-              <div className="absolute left-4 sm:left-6 md:left-7 right-4 sm:right-6 md:right-10 top-4 z-10">
-                <h2 className="heading-sp-h1 sm:text-4xl md:text-3xl xl:text-4xl text-white">
+        <section className="px-5 py-12 sm:py-16 md:py-20">
+          <div className="max-w-[1024px] mx-auto mt-20">
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+  
+              {/* LEFT: Text */}
+              <div className="flex-1 flex flex-col gap-6 text-left">
+                <h2 className="heading-sp-h1 text-white text-3xl sm:text-4xl">
                   Daniel Alexander
                 </h2>
-              </div>
-              <Image
-                src="/daniel.png"
-                alt="Daniel Alexander, author and creator of The Valthakan Times"
-                fill
-                className="rounded-lg"
-                priority
-              />
-            </div>
 
-            {/* Description Text */}
-            <div className="max-w-full sm:max-w-[var(--max-w-container-base)] flex flex-col gap-6">
-              <p className="heading-sp-r-text text-blue-gray-50 text-left">
-                Originally receiving his undergraduate degree in Biomedical Engineering,
-                Daniel’s life was turned upside down the day he decided to start posting
-                across various social media platforms. 
-              </p>
-              <p className="heading-sp-r-text text-blue-gray-50 text-left">
-                Since then, the arrival of the Crone has solidified his journey within the Valthakaverse
-                and made him a premier source on the latest in all things fantasy, lifestyle, and snark.
-              </p>
+                <p className="heading-sp-r-text text-blue-gray-50">
+                  Originally receiving his undergraduate degree in Biomedical Engineering,
+                  Daniel’s life was turned upside down the day he decided to start posting
+                  across various social media platforms.
+                </p>
+
+                <p className="heading-sp-r-text text-blue-gray-50">
+                  Since then, the arrival of the Crone has solidified his journey within the
+                  Valthakaverse and made him a premier source on the latest in all things
+                  fantasy, lifestyle, and snark.
+                </p>
+              </div>
+
+              {/* RIGHT: Image */}
+              <div className="relative flex-1 h-[260px] sm:h-[320px] lg:h-[360px] rounded-lg overflow-hidden shadow-[var(--shadow-indigo-md)]">
+                <Image
+                  src="/daniel.png"
+                  alt="Daniel Alexander, author and creator of The Valthakan Times"
+                  fill
+                  className="object-cover rounded-lg"
+                  priority
+                />
+              </div>
+
             </div>
 
             {/* Social Media Links */}
+            <div className="mt-16 flex justify-center w-full">
+              <div className="w-full max-w-[640px]">
+                {/* 기존 Instagram 카드 코드 그대로 */}
+              </div>
+            </div>
             <div className="flex flex-col gap-8 items-start sm:items-center w-full">
               {/* <p className="heading-sp-h3-eczar text-white text-center w-full">
                 Follow me on social media
               </p> */}
 
               {/* Instagram - Custom Profile Card (No Post Preview) */}
+
               {isLoading ? (
                 <div className="w-full max-w-[var(--max-w-container-md)] bg-gradient-to-br from-blue-gray-900/70 to-indigo-700/30 border-2 border-indigo-500 rounded-xl p-6 sm:p-8 shadow-[var(--shadow-indigo-sm)] animate-pulse">
                   <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -206,51 +217,57 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Section Divider */}
-        {/* <div className="h-px bg-gradient-to-r from-transparent via-indigo-700/30 to-transparent my-8 sm:my-12"></div> */}
-
         {/* The Crone Section */}
-        <section className="bg-blue-gray-900 px-5 py-12 sm:py-16 md:py-20 md:px-8 xl:px-12 animate-fade-in">
-          <div className="max-w-[var(--max-w-container-lg)] mx-auto flex flex-col gap-6 sm:gap-8">
-            <h2 className="heading-sp-h2 sm:text-4xl md:text-5xl xl:text-6xl text-white">
-              The Crone
-            </h2>
+        <section className="bg-blue-gray-900 px-5 py-12 sm:py-16 md:py-20 animate-fade-in">
+          <div className="max-w-[1024px] mx-auto">
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+              
+              {/* LEFT: Text + CTA */}
+              <div className="flex-1 flex flex-col gap-6 text-left">
+                <h2 className="heading-sp-h2 sm:text-4xl md:text-5xl xl:text-6xl text-white">
+                  The Crone
+                </h2>
 
-            <div className="max-w-full sm:max-w-[var(--max-w-container-base)] flex flex-col gap-6">
-              <p className="heading-sp-r-text text-blue-gray-200 text-left">
-                An ancient entity that has since started as far away into
-                bearing novels rich, the Crone is notorious for her offscreen,
-                advice, and general appeals for capable young women who make
-                questionable romance decisions.
-              </p>
-              <p className="heading-sp-r-text text-blue-gray-200 text-left">
-                That&apos;s the has dedicated her life to inspiring breakupens,
-                answering questions, and being capable in all ranier of scanners
-                with Daniel, acting is a hierarchical and design involved in the
-                perspectives crevices both magical and not so magical.
-              </p>
-            </div>
+                <div className="flex flex-col gap-6 max-w-[640px]">
+                  <p className="heading-sp-r-text text-blue-gray-200">
+                    An ancient entity that has since started as far away into
+                    bearing novels rich, the Crone is notorious for her offscreen,
+                    advice, and general appeals for capable young women who make
+                    questionable romance decisions.
+                  </p>
 
-            {/* Crone Illustration */}
-            <div className="relative h-[240px] sm:h-[280px] md:h-[320px] xl:h-[340px] w-full rounded-lg overflow-hidden">
-              <Image
-                src="/crone.png"
-                alt="Illustration of The Crone, an ancient entity from The Valthakan Times universe"
-                fill
-                className="object-contain rounded-lg"
-              />
-            </div>
+                  <p className="heading-sp-r-text text-blue-gray-200">
+                    That&apos;s the has dedicated her life to inspiring breakupens,
+                    answering questions, and being capable in all ranier of scanners
+                    with Daniel, acting is a hierarchical and design involved in the
+                    perspectives crevices both magical and not so magical.
+                  </p>
+                </div>
 
-            {/* Buttons */}
-            <div className="max-w-full sm:max-w-[var(--max-w-container-sm)] flex flex-col gap-6 sm:gap-6 w-full">
-              <button className="bg-indigo-700 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg shadow-[var(--shadow-indigo-md)] text-white heading-sp-b-text hover:bg-indigo-600 hover:scale-[1.02] hover:shadow-[var(--shadow-indigo-lg)] transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-blue-gray-900">
-                Read The Story
-                <BookOpen size={18} />
-              </button>
-              <button className="backdrop-blur-[5px] bg-white/10 border border-indigo-400 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-white heading-sp-b-text hover:bg-white/15 hover:scale-[1.02] hover:border-indigo-300 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-blue-gray-900">
-                Join The Coven
-                <UserPlus size={18} />
-              </button>
+                {/* Buttons */}
+                <div className="mt-4 flex flex-col gap-4 w-full max-w-[420px]">
+                  <button className="w-full bg-indigo-700 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg shadow-[var(--shadow-indigo-md)] text-white heading-sp-b-text hover:bg-indigo-600 hover:scale-[1.02] hover:shadow-[var(--shadow-indigo-lg)] transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-blue-gray-900">
+                    Read The Story
+                    <BookOpen size={18} />
+                  </button>
+
+                  <button className="w-full backdrop-blur-[5px] bg-white/10 border border-indigo-400 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-white heading-sp-b-text hover:bg-white/15 hover:scale-[1.02] hover:border-indigo-300 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-blue-gray-900">
+                    Ask The Crone
+                    <UserPlus size={18} />
+                  </button>
+                </div>
+              </div>
+
+              {/* RIGHT: Image */}
+              <div className="relative flex-1 h-[260px] sm:h-[300px] md:h-[340px] rounded-lg overflow-hidden">
+                <Image
+                  src="/crone.png"
+                  alt="Illustration of The Crone, an ancient entity from The Valthakan Times universe"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+
             </div>
           </div>
         </section>

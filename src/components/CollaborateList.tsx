@@ -21,7 +21,7 @@ export default async function CollaborateList() {
         </div>
 
         {/* Content */}
-        <div className="col-span-12 md:col-span-8 md:col-start-3 mt-8 flex flex-col gap-8">
+        <div className="col-span-12 col-start-1 mt-8 flex flex-col gap-8">
           <BookRow />
           <CompanyRow />
 

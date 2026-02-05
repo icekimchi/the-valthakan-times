@@ -39,7 +39,7 @@ export default function InstagramSection({
         <div
           className="
             col-span-12
-            md:col-span-8 md:col-start-3
+            md:col-span-10 md:col-start-2
             grid grid-cols-2 md:grid-cols-4
             gap-[22px] mb-10
           "
@@ -66,7 +66,7 @@ export default function InstagramSection({
         </div>
 
         {/* CTA */}
-        <div className="col-span-12 md:col-span-8 md:col-start-3">
+        <div className="col-span-12 md:col-span-10 md:col-start-2">
           <Link href={profileUrl} className="block w-full">
             <PrimaryButton
               text="See more posts →"

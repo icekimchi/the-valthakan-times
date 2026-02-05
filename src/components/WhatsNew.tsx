@@ -36,8 +36,8 @@ export default async function WhatsNew() {
           className="w-full max-w-[900px] object-contain opacity-60 scale-125"
         />
       </div>
-
-      <div className="mx-auto max-w-[1106px] grid grid-cols-12 gap-[22px] px-5">
+    
+      <div className="mx-auto max-w-[1106px] grid grid-cols-12 items-center gap-[22px] px-5">
 
         {/* Title block (10 columns) */}
         <div className="col-span-12 md:col-span-10 md:col-start-2 flex flex-col items-center gap-4">
@@ -57,8 +57,8 @@ export default async function WhatsNew() {
         <div
           className="
             col-span-12
-            md:col-span-10 md:col-start-2
-            grid grid-cols-1 md:grid-cols-2 gap-[22px] mt-12
+            md:col-span-10 md:col-start-2 place-items-center
+            grid grid-cols-1 sm:grid-cols-2 gap-[22px] mt-12
           "
         >
           <ServiceCard
@@ -79,7 +79,7 @@ export default async function WhatsNew() {
         </div>
 
         {/* Shorts title */}
-        <div className="col-span-12 md:col-span-10 md:col-start-2 mt-16">
+        <div className="col-span-12 md:col-span-10 md:col-start-2 mt-16 items-center">
           <h1 className="text-lg !font-serif text-white flex items-center gap-4">
             <Image
               src="/youtubeshort.svg"

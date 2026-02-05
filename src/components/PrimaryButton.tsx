@@ -26,7 +26,7 @@ export const PrimaryButton = ({
         w-full flex items-center justify-center flex-row
         rounded-[8px]
         font-['Eczar'] font-semibold
-        bg-indigo-700 hover:bg-yellow-500
+        bg-indigo-700 hover:bg-indigo-900
         text-white
         px-[var(--spacing-5)] py-3
         gap-[var(--spacing-1-5)]
