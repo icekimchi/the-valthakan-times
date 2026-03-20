@@ -69,7 +69,7 @@ export default function AboutPage() {
             {/* Profile Image */}
             <div className="relative h-[240px] sm:h-[300px] md:h-[340px] xl:h-[390px] rounded-lg shadow-[var(--shadow-indigo-md)] overflow-hidden mt-4">
               <div className="absolute left-4 sm:left-6 md:left-7 right-4 sm:right-6 md:right-10 top-4 z-10">
-                <h2 className="heading-sp-h1 sm:text-4xl md:text-4xl xl:text-6xl text-white">
+                <h2 className="heading-sp-h1 sm:text-4xl md:text-3xl xl:text-4xl text-white">
                   Daniel Alexander
                 </h2>
               </div>
@@ -269,7 +269,7 @@ export default function AboutPage() {
         <div className="h-px bg-gradient-to-r from-transparent via-indigo-700/30 to-transparent my-8 sm:my-12"></div>
 
         {/* As Seen In The Valthakan Times Section */}
-        <section className="bg-blue-gray-900/20 px-5 py-12 sm:py-16 md:py-20 md:px-8 xl:px-12 animate-fade-in">
+        <section id="social-section" className="bg-blue-gray-900/20 px-5 py-12 sm:py-16 md:py-20 md:px-8 xl:px-12 animate-fade-in">
           <div className="max-w-[var(--max-w-container-lg)] xl:max-w-[var(--max-w-container-2xl)] mx-auto flex flex-col gap-8 sm:gap-10">
             <div className="flex flex-col gap-2 items-start sm:items-center">
               <h2 className="heading-sp-h2 sm:text-4xl md:text-5xl xl:text-6xl text-white text-left sm:text-center">

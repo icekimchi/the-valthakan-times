@@ -58,7 +58,6 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -70,7 +69,7 @@ export default function Navbar() {
           >
             <div className="h-full flex flex-col relative">
               {/* Menu Items */}
-              <ul className="flex flex-col text-white text-lg text-center font-medium px-6">
+              <ul className="flex flex-col text-white text-lg text-sm text-center font-medium px-6 py-4">
                 <li className="-mx-6 list-none">
                   <div className="ring-1 ring-[#302D9A]/20 divide-y divide-[#302D9A]/20 overflow-hidden">
                     {NAV_LINKS
@@ -95,7 +94,7 @@ export default function Navbar() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setIsOpen(false)}
-                          className="flex items-center justify-center gap-2-5 h-full py-[20px]"
+                          className="flex items-center text-sm justify-center gap-2-5 h-full py-[20px]"
                         >
                           <img src={link.image} alt={link.name} className="w-5 h-5" />
                           <span>{link.name}</span>
@@ -106,39 +105,37 @@ export default function Navbar() {
                 </li>
               </ul>
               
-              
-              
+            
               {/* Bottom Buttons */}
-              <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-3 px-6 pb-6">
-                <div className="px-5 flex flex-col items-center gap-6 py-5">
-                  <SocialLinks />
+              <div className="mt-auto w-full flex flex-col items-center gap-6 px-6 mb-6 pb-6 pb-[env(safe-area-inset-bottom)]">
+                <SocialLinks />
 
-                  <Link href="/mypage" className="w-full">
-                    <div
-                      className="
-                        w-full flex flex-col items-center gap-5 px-6 py-5
-                        rounded-[16px] border border-[1px] border-[#302D9A]/20
-                        backdrop-blur-[2px] bg-[color:var(--color-card-bg)]
-                        box-border
-                      "
-                    >
-                      <img
-                        src="/Avatar.png"
-                        width={72}
-                        height={72}
-                        className="object-contain flex-shrink-0"
+                <Link href="/mypage" className="w-full">
+                  <div
+                    className="
+                      w-full flex flex-col items-center gap-5 px-6 py-2
+                      rounded-[16px] border border-[1px] border-[#302D9A]/20
+                      backdrop-blur-[2px] bg-[color:var(--color-card-bg)]
+                      box-border
+                    "
+                  >
+                    <img
+                      src="/Avatar.png"
+                      width={48}
+                      height={48}
+                      className="object-contain"
                       />
-                      <div className="text-xl-figma text-center">
-                        <div className="title text-white font-semibold font-['Eczar']">
-                          Name
-                        </div>
-                        <div className="text-base-figma text-[color:var(--color-blue-gray-400)]">
-                          thevalthakantimes12@gmail.com
-                        </div>
+                    <div className="text-xl-figma text-center">
+                      <div className="title text-white font-semibold font-['Eczar']">
+                        Name
+                      </div>
+                      <div className="text-base-figma text-[color:var(--color-blue-gray-400)]">
+                        thevalthakantimes12@gmail.com
                       </div>
                     </div>
-                  </Link>
-                </div>
+                  </div>
+                </Link>                    
+
                 <Link href="/login" className="w-full">
                   <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
                 </Link>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PrimaryButton } from "@/components/PrimaryButton";
 import { SecondaryButton } from "@/components/SecondaryButton";
+import Link from "next/link";
 
 export default async function HomeHero() {
     return (
@@ -65,7 +66,10 @@ export default async function HomeHero() {
         {/* CTAs */}
         <div className="flex flex-col gap-4 w-full justify-center">
           <PrimaryButton text="Subscribe" showLeftIcon={false} showRightIcon={false} />
-          <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
+          <Link href="https://zkutd6jt9si.typeform.com/to/KmFHyFqx" className="w-full">
+            <SecondaryButton text="Partner With Us" showLeftIcon={false} showRightIcon={false} />
+          </Link>
+          
         </div>
       </div>
 
