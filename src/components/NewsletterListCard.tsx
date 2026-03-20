@@ -41,7 +41,7 @@ export default function NewsletterListsCard({
         relative inline-flex flex-col items-center justify-center
         w-[141px] h-[128px] bg-[#120F2E] rounded-tl-lg rounded-bl-lg pt-[34px] pb-[34px] px-4 gap-[10px]
         outline outline-1 outline-offset-[-1px] outline-[#302D9A]/20">
-        <div className="relative flex-shrink-0 w-full sm:w-[160px] aspect-[2880/1800] rounded-xl overflow-hidden">
+        <div className="relative flex-shrink-0 w-full md:w-[140px] aspect-[2880/1800] rounded-xl overflow-hidden">
           <Image
             src={imageSrc}
             alt={title}

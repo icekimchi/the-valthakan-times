@@ -59,15 +59,13 @@ export default function NewsletterListSection({ initialItems }: Props) {
         (a, b) => +new Date(a.dateISO ?? 0) - +new Date(b.dateISO ?? 0)
       );
     } else if (filters.sort === "most_view") {
-      // 아직 조회수 필드 없으면 일단 그대로 두거나 나중에 추가
-      // list.sort((a, b) => (b.views ?? 0) - (a.views ?? 0));
     }
 
     return list;
   }, [filters, initialItems]);
 
   return (
-    <div className="w-full flex flex-col gap-4 mx-5">
+    <div className="w-full flex flex-col gap-4">
       <FilterBar filters={filters} onChange={setFilters} />
       <div className="flex w-full justify-center mb-8 z-20">
         <NewsletterList items={filteredItems} />
